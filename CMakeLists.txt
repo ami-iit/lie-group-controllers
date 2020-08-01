@@ -68,3 +68,41 @@ if(NOT CMAKE_CONFIGURATION_TYPES)
     set(LIEGROUPCONTROLLERS_BUILD_TYPES "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
     set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS ${LIEGROUPCONTROLLERS_BUILD_TYPES})
 endif()
+
+set(LIBRARY_TARGET_NAME LieGroupControllers)
+
+
+set(${LIBRARY_TARGET_NAME}_PUBLIC_HDR
+  )
+
+set(${LIBRARY_TARGET_NAME}_PRIVATE_HDR
+  )
+
+add_library(${LIBRARY_TARGET_NAME} INTERFACE)
+add_library(${PROJECT_NAME}::${LIBRARY_TARGET_NAME} ALIAS ${LIBRARY_TARGET_NAME})
+
+target_include_directories(${LIBRARY_TARGET_NAME} INTERFACE
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+  "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
+
+target_link_libraries(${LIBRARY_TARGET_NAME} INTERFACE manif::manif Eigen3::Eigen)
+
+install(TARGETS ${LIBRARY_TARGET_NAME} EXPORT  ${PROJECT_NAME})
+
+install(FILES ${${LIBRARY_TARGET_NAME}_PUBLIC_HDR}
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_TARGET_NAME}")
+install(FILES ${${LIBRARY_TARGET_NAME}_PRIVATE_HDR}
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_TARGET_NAME}/impl")
+
+include(InstallBasicPackageFiles)
+set(LIEGROUPCONTROLLERS_PUBLIC_DEPENDENCIES manif "Eigen3 3.2.92")
+
+install_basic_package_files(${PROJECT_NAME}
+                            NAMESPACE LieGroupControllers::
+                            VERSION ${LieGroupControllers_VERSION}
+                            COMPATIBILITY AnyNewerVersion
+                            VARS_PREFIX ${PROJECT_NAME}
+                            NO_CHECK_REQUIRED_COMPONENTS_MACRO
+                            DEPENDENCIES ${LIEGROUPCONTROLLERS_PUBLIC_DEPENDENCIES})
+
+include(AddUninstallTarget)
