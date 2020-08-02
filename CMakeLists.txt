@@ -71,11 +71,18 @@ endif()
 
 set(LIBRARY_TARGET_NAME LieGroupControllers)
 
-
 set(${LIBRARY_TARGET_NAME}_PUBLIC_HDR
+  include/LieGroupControllers/ProportionalController.h
   )
 
 set(${LIBRARY_TARGET_NAME}_PRIVATE_HDR
+  include/LieGroupControllers/impl/traits.h
+  include/LieGroupControllers/impl/ControllerBase.h
+  )
+
+set(${LIBRARY_TARGET_NAME}_PRIVATE_PROPORTIONAL_HDR
+  include/LieGroupControllers/impl/ProportionalController/ProportionalController.h
+  include/LieGroupControllers/impl/ProportionalController/ProportionalController_base.h
   )
 
 add_library(${LIBRARY_TARGET_NAME} INTERFACE)
@@ -85,24 +92,32 @@ target_include_directories(${LIBRARY_TARGET_NAME} INTERFACE
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 
-target_link_libraries(${LIBRARY_TARGET_NAME} INTERFACE manif::manif Eigen3::Eigen)
+target_link_libraries(${LIBRARY_TARGET_NAME} INTERFACE Eigen3::Eigen MANIF::manif)
 
 install(TARGETS ${LIBRARY_TARGET_NAME} EXPORT  ${PROJECT_NAME})
 
 install(FILES ${${LIBRARY_TARGET_NAME}_PUBLIC_HDR}
   DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_TARGET_NAME}")
+
 install(FILES ${${LIBRARY_TARGET_NAME}_PRIVATE_HDR}
   DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_TARGET_NAME}/impl")
+
+install(FILES ${${LIBRARY_TARGET_NAME}_PRIVATE_PROPORTIONAL_HDR}
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_TARGET_NAME}/impl/ProportionalController")
 
 include(InstallBasicPackageFiles)
 set(LIEGROUPCONTROLLERS_PUBLIC_DEPENDENCIES manif "Eigen3 3.2.92")
 
 install_basic_package_files(${PROJECT_NAME}
-                            NAMESPACE LieGroupControllers::
-                            VERSION ${LieGroupControllers_VERSION}
-                            COMPATIBILITY AnyNewerVersion
-                            VARS_PREFIX ${PROJECT_NAME}
-                            NO_CHECK_REQUIRED_COMPONENTS_MACRO
-                            DEPENDENCIES ${LIEGROUPCONTROLLERS_PUBLIC_DEPENDENCIES})
+  NAMESPACE LieGroupControllers::
+  VERSION ${LieGroupControllers_VERSION}
+  COMPATIBILITY AnyNewerVersion
+  VARS_PREFIX ${PROJECT_NAME}
+  NO_CHECK_REQUIRED_COMPONENTS_MACRO
+  DEPENDENCIES ${LIEGROUPCONTROLLERS_PUBLIC_DEPENDENCIES})
+
+## Testing
+include(AddLieGroupControllersUnitTest)
+add_subdirectory(tests)
 
 include(AddUninstallTarget)
