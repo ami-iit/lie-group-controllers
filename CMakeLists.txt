@@ -85,6 +85,11 @@ set(${LIBRARY_TARGET_NAME}_PRIVATE_PROPORTIONAL_HDR
   include/LieGroupControllers/impl/ProportionalController/ControllerBase.h
   )
 
+set(${LIBRARY_TARGET_NAME}_PRIVATE_PROPORTIONAL_DERIVATIVE_HDR
+  include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h
+  include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h
+  )
+
 add_library(${LIBRARY_TARGET_NAME} INTERFACE)
 add_library(${PROJECT_NAME}::${LIBRARY_TARGET_NAME} ALIAS ${LIBRARY_TARGET_NAME})
 
@@ -104,6 +109,9 @@ install(FILES ${${LIBRARY_TARGET_NAME}_PRIVATE_HDR}
 
 install(FILES ${${LIBRARY_TARGET_NAME}_PRIVATE_PROPORTIONAL_HDR}
   DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_TARGET_NAME}/impl/ProportionalController")
+
+install(FILES ${${LIBRARY_TARGET_NAME}_PRIVATE_PROPORTIONAL_DERIVATIVE_HDR}
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_TARGET_NAME}/impl/ProportionalDerivativeController")
 
 include(InstallBasicPackageFiles)
 set(LIEGROUPCONTROLLERS_PUBLIC_DEPENDENCIES manif "Eigen3 3.2.92")
