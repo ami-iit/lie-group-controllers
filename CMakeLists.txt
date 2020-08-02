@@ -81,8 +81,8 @@ set(${LIBRARY_TARGET_NAME}_PRIVATE_HDR
   )
 
 set(${LIBRARY_TARGET_NAME}_PRIVATE_PROPORTIONAL_HDR
-  include/LieGroupControllers/impl/ProportionalController/ProportionalController.h
-  include/LieGroupControllers/impl/ProportionalController/ProportionalController_base.h
+  include/LieGroupControllers/impl/ProportionalController/Controller.h
+  include/LieGroupControllers/impl/ProportionalController/ControllerBase.h
   )
 
 add_library(${LIBRARY_TARGET_NAME} INTERFACE)

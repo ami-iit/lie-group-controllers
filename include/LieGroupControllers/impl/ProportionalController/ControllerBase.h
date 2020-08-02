@@ -1,12 +1,12 @@
 /**
- * @file ProportionalControllerBase.h
+ * @file ControllerBase.h
  * @authors Giulio Romualdi
  * @copyright This software may be modified and  distributed under the terms of
  * the GNU Lesser General Public License v2.1 or any later version.
  */
 
-#ifndef LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_BASE_H
-#define LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_BASE_H
+#ifndef LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_CONTROLLER_BASE_H
+#define LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_CONTROLLER_BASE_H
 
 #include <LieGroupControllers/impl/ControllerBase.h>
 #include <tuple>
@@ -84,4 +84,4 @@ ProportionalControllerBase<_Derived>::getControl() const
 
 } // namespace LieGroupControllers
 
-#endif //LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_H
+#endif // LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_CONTROLLER_BASE_H

@@ -21,7 +21,7 @@ TEST_CASE("Proportional Controller [SO(3)]")
     constexpr double kp = 10;
     constexpr std::size_t numberOfIteration = 1e3;
 
-    ProportinalControllerSO3 controller;
+    ProportionalControllerSO3 controller;
     controller.setGain(kp);
     controller.setDesiredState(desiredState);
 
@@ -52,7 +52,7 @@ TEST_CASE("Proportional Controller [SE(3)]")
     constexpr double kp = 10;
     constexpr std::size_t numberOfIteration = 1e3;
 
-    ProportinalControllerSE3 controller;
+    ProportionalControllerSE3 controller;
     controller.setGain(kp);
     controller.setDesiredState(desiredState);
 

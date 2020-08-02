@@ -1,16 +1,16 @@
 /**
- * @file ProportionalController.h
+ * @file Controller.h
  * @authors Giulio Romualdi
  * @copyright This software may be modified and  distributed under the terms of
  * the GNU Lesser General Public License v2.1 or any later version.
  */
 
-#ifndef LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_H
-#define LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_H
+#ifndef LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_CONTROLLER_H
+#define LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_CONTROLLER_H
 
 #include <type_traits>
 
-#include <LieGroupControllers/impl/ProportionalController/ProportionalController_base.h>
+#include <LieGroupControllers/impl/ProportionalController/ControllerBase.h>
 #include <manif/manif.h>
 
 namespace LieGroupControllers
@@ -47,4 +47,4 @@ class ProportionalController
 
 } // namespace LieGroupControllers
 
-#endif // LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_H
+#endif // LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_CONTROLLER_H
