@@ -16,13 +16,10 @@ namespace LieGroupControllers
 template <typename _Derived>
 class ProportionalDerivativeControllerBase : public ControllerBase<_Derived>
 {
-
-public:
     using State = typename ControllerBase<_Derived>::State;
     using Vector = typename ControllerBase<_Derived>::Vector;
     using Gains = typename ControllerBase<_Derived>::Gains;
 
-private:
     State m_state;
     State m_desiredState;
     Vector m_feedForward;
