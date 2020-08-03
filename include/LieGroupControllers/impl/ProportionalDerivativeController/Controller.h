@@ -10,8 +10,9 @@
 
 #include <type_traits>
 
-#include <LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h>
 #include <manif/manif.h>
+
+#include <LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h>
 
 namespace LieGroupControllers
 {
@@ -37,12 +38,17 @@ template <typename _LieGroupType> struct traits<ProportionalDerivativeController
 namespace LieGroupControllers
 {
 
+/**
+ * ProporionalDerivativeController describes a PD controller on Lie Groups.
+ * @tparam _LieGroupType describes the Lie Group.
+ * @note _LieGroupType must derived from manif::LieGroupBase<_LieGroupType>
+ */
 template <typename _LieGroupType>
 class ProportionalDerivativeController
     : public ProportionalDerivativeControllerBase<ProportionalDerivativeController<_LieGroupType>>
 {
     static_assert(std::is_base_of<manif::LieGroupBase<_LieGroupType>, _LieGroupType>::value,
-                  "The type must derive from manif");
+                  "The template type must derive from 'manif::LieGroupBase<>'");
 };
 
 } // namespace LieGroupControllers
