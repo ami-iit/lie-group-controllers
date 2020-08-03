@@ -68,7 +68,7 @@ public:
      * Get the control signal.
      * @return a vector containing the control effort.
      * @note Please call this function only after computeControlLaw().
-     * @note In the current implementation the control effort belongs to the langet space at the
+     * @note In the current implementation the control effort belongs to the tangent space at the
      * identity, $\fT_\eps \mathcal{M}$\f. Please use the Adjoint transformation to convert the
      * express the vector in a different tangent space.
      */
