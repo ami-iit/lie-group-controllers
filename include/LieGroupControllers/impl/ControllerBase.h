@@ -13,13 +13,19 @@
 namespace LieGroupControllers
 {
 
+/**
+ * ControllerBase describes a base controller
+ * @tparam _Derived type of the Derived class. Necessary to implement the Curiously recurring
+ * template pattern.
+ */
 template <class _Derived> class ControllerBase
 {
 public:
-
-    using State = typename internal::traits<_Derived>::State;
-    using Vector = typename internal::traits<_Derived>::Vector;
-    using Gains = typename internal::traits<_Derived>::Gains;
+    using State = typename internal::traits<_Derived>::State; /**< State type */
+    using Vector = typename internal::traits<_Derived>::Vector; /**< Here we consider a Vector an
+                                                                   element of the tangent space of
+                                                                   the Group. */
+    using Gains = typename internal::traits<_Derived>::Gains; /**< Gains used by the controller */
 
 private:
     _Derived& derived()
@@ -32,16 +38,46 @@ private:
     }
 
 public:
+    /**
+     * Set the control state.
+     * @param state of the system.
+     * @return true in case of success, false otherwise.
+     */
     bool setState(const State& state);
 
+    /**
+     * Set the desired state.
+     * @param state of the system.
+     * @return true in case of success, false otherwise.
+     */
     bool setDesiredState(const State& state);
 
+    /**
+     * Set the feedforward term of the controller.
+     * @param feedforward is a vector of the tangent space of the the group.
+     * @return true in case of success, false otherwise.
+     */
     bool setFeedForward(const Vector& feedForward);
 
+    /**
+     * Set the controller gains.
+     * @param gains contains the controller gains.
+     */
     void setGains(const Gains& gains);
 
+    /**
+     * Evaluate the control law.
+     */
     void computeControlLaw();
 
+    /**
+     * Get the control signal.
+     * @return a vector containing the control effort.
+     * @note Please call this function only after computeControlLaw().
+     * @note In the current implementation the control effort belongs to the langet space at the
+     * identity, $\fT_\eps \mathcal{M}$\f. Please use the Adjoint transformation to convert the
+     * express the vector in a different tangent space.
+     */
     const Vector& getControl() const;
 };
 
