@@ -37,12 +37,17 @@ template <typename _LieGroupType> struct traits<ProportionalController<_LieGroup
 namespace LieGroupControllers
 {
 
+/**
+ * ProporionalDerivativeController describes a PD controller on Lie Groups.
+ * @tparam _LieGroupType describes the Lie Group.
+ * @note _LieGroupType must derived from manif::LieGroupBase<_LieGroupType>
+ */
 template <typename _LieGroupType>
 class ProportionalController
     : public ProportionalControllerBase<ProportionalController<_LieGroupType>>
 {
     static_assert(std::is_base_of<manif::LieGroupBase<_LieGroupType>, _LieGroupType>::value,
-                  "The type must derive from manif");
+                  "The template type must derive from 'manif::LieGroupBase<>'");
 };
 
 } // namespace LieGroupControllers

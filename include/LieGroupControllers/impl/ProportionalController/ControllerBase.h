@@ -9,12 +9,11 @@
 #define LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_CONTROLLER_BASE_H
 
 #include <LieGroupControllers/impl/ControllerBase.h>
-#include <tuple>
 
 namespace LieGroupControllers
 {
-template <typename _Derived>
-class ProportionalControllerBase : public ControllerBase<_Derived>
+
+template <typename _Derived> class ProportionalControllerBase : public ControllerBase<_Derived>
 {
     using State = typename ControllerBase<_Derived>::State;
     using Vector = typename ControllerBase<_Derived>::Vector;
@@ -27,16 +26,49 @@ class ProportionalControllerBase : public ControllerBase<_Derived>
     Gains m_gain;
 
 public:
+    /**
+     * Set the control state.
+     * @param state of the system.
+     * @note for the ProportionalController the state is given by the element of the Lie group.
+     * @return true in case of success, false otherwise.
+     */
     bool setState(const State& state);
 
+    /**
+     * Set the desired state.
+     * @param state of the system.
+     * @note for the ProportionalController the state is given by the element of the Lie group.
+     * @return true in case of success, false otherwise.
+     */
     bool setDesiredState(const State& state);
 
+    /**
+     * Set the feedforward term of the controller.
+     * @param feedforward is a vector of the tangent space of the the group.
+     * @return true in case of success, false otherwise.
+     */
     bool setFeedForward(const Vector& feedForward);
 
+    /**
+     * Set the controller gains.
+     * @param gains contains the controller gains.
+     * @note for the ProportionalController the gain is simply a double.
+     */
+    void setGains(const Gains& gains);
+
+    /**
+     * Evaluate the control law.
+     */
     void computeControlLaw();
 
-    void setGain(const Gains& gain);
-
+    /**
+     * Get the control signal.
+     * @return a vector containing the control effort.
+     * @note Please call this function only after computeControlLaw().
+     * @note In the current implementation the control effort belongs to the langet space at the
+     * identity, $\fT_\eps \mathcal{M}$\f. Please use the Adjoint transformation to convert the
+     * express the vector in a different tangent space.
+     */
     const Vector& getControl() const;
 };
 
@@ -60,14 +92,17 @@ bool ProportionalControllerBase<_Derived>::setFeedForward(const Vector& feedForw
     return true;
 }
 
-template <typename _Derived>
-void ProportionalControllerBase<_Derived>::setGain(const Gains& gain)
+template <typename _Derived> void ProportionalControllerBase<_Derived>::setGains(const Gains& gain)
 {
     m_gain = gain;
 }
 
 template <typename _Derived> void ProportionalControllerBase<_Derived>::computeControlLaw()
 {
+    // please read it as
+    // log(X_d * X ^-1)^\vee
+    // Indeed here log() is a sequence of an actual logarithm mapping of the group plus a vee
+    // operator.
     auto error = (m_desiredState.compose(m_state.inverse())).log();
     m_controlOutput = m_feedForward.coeffs() + m_gain * error.coeffs();
 }
