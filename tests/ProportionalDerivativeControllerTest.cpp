@@ -25,7 +25,7 @@ TEST_CASE("Proportional Derivative Controller [SO(3)]")
     constexpr double kd = 2 * std::sqrt(kp);
     constexpr std::size_t numberOfIteration = 1e3;
 
-    ProportionalDerivativeControllerSO3 controller;
+    ProportionalDerivativeControllerSO3d controller;
     controller.setGain({kp, kd});
     controller.setDesiredState({desiredState, desiredStateDerivative});
 
@@ -38,8 +38,6 @@ TEST_CASE("Proportional Derivative Controller [SO(3)]")
         auto controlOutput = controller.getControl();
         manif::SO3d::Tangent stateDerivativeDT = stateDerivative.coeffs() * dT;
         state = stateDerivativeDT + state;
-
-        manif::SO3d::Tangent controlOutputDT = controlOutput.coeffs() * dT;
         stateDerivative += controlOutput * dT;
     }
 
@@ -62,7 +60,7 @@ TEST_CASE("Proportional Derivative Controller [SE(3)]")
     constexpr double kd = 2 * std::sqrt(kp);
     constexpr std::size_t numberOfIteration = 1e3;
 
-    ProportionalDerivativeControllerSE3 controller;
+    ProportionalDerivativeControllerSE3d controller;
     controller.setGain({kp, kd});
     controller.setDesiredState({desiredState, desiredStateDerivative});
 
@@ -75,8 +73,6 @@ TEST_CASE("Proportional Derivative Controller [SE(3)]")
         auto controlOutput = controller.getControl();
         manif::SE3d::Tangent stateDerivativeDT = stateDerivative.coeffs() * dT;
         state = stateDerivativeDT + state;
-
-        manif::SE3d::Tangent controlOutputDT = controlOutput.coeffs() * dT;
         stateDerivative += controlOutput * dT;
     }
 
