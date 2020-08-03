@@ -104,7 +104,7 @@ template <typename _Derived> void ProportionalControllerBase<_Derived>::computeC
     // Indeed here log() is a sequence of an actual logarithm mapping of the group plus a vee
     // operator.
     auto error = (m_desiredState.compose(m_state.inverse())).log();
-    m_controlOutput = m_feedForward.coeffs() + m_gain * error.coeffs();
+    m_controlOutput = m_feedForward + error * m_gain;
 }
 
 template <typename _Derived>
