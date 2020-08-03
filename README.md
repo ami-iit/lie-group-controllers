@@ -11,10 +11,10 @@ Header-only C++ libraries containing controllers designed for Lie Groups.
 
 ## Dependeces
 
-- [manif](https://github.com/artivis/manif);
-- [Eigen3](http://eigen.tuxfamily.org/index.php?title=Main_Page);
-- [cmake](https://cmake.org/);
-- [Catch2](https://github.com/catchorg/Catch2) (only for testing).
+- [manif](https://github.com/artivis/manif)
+- [Eigen3](http://eigen.tuxfamily.org/index.php?title=Main_Page)
+- [cmake](https://cmake.org/)
+- [Catch2](https://github.com/catchorg/Catch2) (only for testing)
 
 ## Build the library
 
@@ -40,4 +40,4 @@ target_link_libraries(${PROJECT_NAME} LieGroupsControllers::LieGroupsControllers
 
 ## Bug reports and support
 
-All types of [issues](https://github.com/GiulioRomualdi/lie-group-controllers/issues/new) are welcome.
+All types of [issues](https://github.com/dic-iit/lie-group-controllers/issues/new) are welcome.
