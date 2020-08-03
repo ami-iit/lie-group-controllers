@@ -31,6 +31,7 @@ If you want to enable tests set the `BUILD_TESTING` option to `ON`.
 ## Use lie-groups-controllers in your project
 
 **lie-groups-controllers** provides native CMake support which allows the library to be easily used in CMake projects. Please add in your `CMakeLists.txt`
+
 ```cmake
 project(foo)
 find_package(LieGroupsControllers REQUIRED)
@@ -41,3 +42,7 @@ target_link_libraries(${PROJECT_NAME} LieGroupsControllers::LieGroupsControllers
 ## Bug reports and support
 
 All types of [issues](https://github.com/dic-iit/lie-group-controllers/issues/new) are welcome.
+
+## Note
+
+The original version of the library can be found [here](https://github.com/GiulioRomualdi/lie-group-controllers).
