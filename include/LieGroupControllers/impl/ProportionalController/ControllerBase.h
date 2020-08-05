@@ -19,11 +19,11 @@ template <typename _Derived> class ProportionalControllerBase : public Controlle
     using Vector = typename ControllerBase<_Derived>::Vector;
     using Gains = typename ControllerBase<_Derived>::Gains;
 
-    State m_state;
-    State m_desiredState;
-    Vector m_feedForward;
-    Vector m_controlOutput;
-    Gains m_gain;
+    State m_state{State::Identity()};
+    State m_desiredState{State::Identity()};
+    Vector m_feedForward{Vector::Zero()};
+    Vector m_controlOutput{Vector::Zero()};
+    Gains m_gain{0};
 
 public:
     /**

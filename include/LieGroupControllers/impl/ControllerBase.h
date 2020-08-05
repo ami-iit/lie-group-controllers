@@ -26,6 +26,7 @@ public:
                                                                    element of the lie algebra of
                                                                    the Group. */
     using Gains = typename internal::traits<_Derived>::Gains; /**< Gains used by the controller */
+    using LieGroup = typename internal::traits<_Derived>::LieGroup; /**< Lie Group */
 
 private:
     _Derived& derived()

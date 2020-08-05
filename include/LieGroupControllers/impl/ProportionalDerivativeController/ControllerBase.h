@@ -19,12 +19,13 @@ class ProportionalDerivativeControllerBase : public ControllerBase<_Derived>
     using State = typename ControllerBase<_Derived>::State;
     using Vector = typename ControllerBase<_Derived>::Vector;
     using Gains = typename ControllerBase<_Derived>::Gains;
+    using LieGroup = typename ControllerBase<_Derived>::LieGroup;
 
-    State m_state;
-    State m_desiredState;
-    Vector m_feedForward;
-    Vector m_controlOutput;
-    Gains m_gain;
+    State m_state{LieGroup::Identity(), Vector::Zero()};
+    State m_desiredState{LieGroup::Identity(), Vector::Zero()};
+    Vector m_feedForward{Vector::Zero()};
+    Vector m_controlOutput{Vector::Zero()};
+    Gains m_gain{0, 0};
 
 public:
     /**
