@@ -23,7 +23,7 @@ template <class _Derived> class ControllerBase
 public:
     using State = typename internal::traits<_Derived>::State; /**< State type */
     using Vector = typename internal::traits<_Derived>::Vector; /**< Here we consider a Vector an
-                                                                   element of the tangent space of
+                                                                   element of the lie algebra of
                                                                    the Group. */
     using Gains = typename internal::traits<_Derived>::Gains; /**< Gains used by the controller */
 
