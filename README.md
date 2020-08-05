@@ -11,7 +11,7 @@ Header-only C++ libraries containing controllers designed for Lie Groups.
 
 ## Some theory behind the library
 
-The aim of the library is to contain same controllers designed in lie groups. The library depends only on `Eigen` and [`manif`](https://github.com/artivis/manif).
+The aim of the library is to contain some controllers designed in lie groups. The library depends only on `Eigen` and [`manif`](https://github.com/artivis/manif).
 
 All the controllers defined in `lie-group-controllers` have in common that they inherit from a templated base class ([CRTP](https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern)). It allows one to write generic code abstracting the controller details. This follows the structure of `manif` and `Eigen`.
 
