@@ -5,6 +5,9 @@
 <p align="center">
 <a href="https://isocpp.org"><img src="https://img.shields.io/badge/standard-C++17-blue.svg?style=flat&logo=c%2B%2B" alt="C++ Standard"/></a>
 <a href="./LICENSE"><img src="https://img.shields.io/badge/license-LGPL-19c2d8.svg" alt="Size" /></a>
+<a href="https://dic-iit.github.io/lie-group-controllers/doxygen/doc/html/index.html"><img src="https://github.com/dic-iit/lie-group-controllers/workflows/GitHub%20Pages/badge.svg" alt="Size" /></a>
+<a href="https://github.com/dic-iit/lie-group-controllers/actions?query=workflow%3A%22C%2B%2B+CI+Workflow%22"><img src="https://github.com/dic-iit/lie-group-controllers/workflows/C++%20CI%20Workflow/badge.svg" alt="Size" /></a>
+
 </p>
 
 Header-only C++ libraries containing controllers designed for Lie Groups.
@@ -36,7 +39,10 @@ At the moment, the controllers support all the group defined in `manif`. Namely:
 
 Please you can find further information in
 ```
-Modern Robotics: Mechanics, Planning, and Control," Kevin M. Lynch and Frank C. Park, Cambridge University Press, 2017, ISBN 9781107156302
+Modern Robotics: Mechanics, Planning, and Control,
+Kevin M. Lynch and Frank C. Park, 
+Cambridge University Press, 2017, 
+ISBN 9781107156302
 ```
 
 ## Dependeces
