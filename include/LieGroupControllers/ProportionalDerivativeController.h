@@ -14,6 +14,7 @@ namespace LieGroupControllers
 {
     using ProportionalDerivativeControllerSO3d = ProportionalDerivativeController<manif::SO3d>;
     using ProportionalDerivativeControllerSE3d = ProportionalDerivativeController<manif::SE3d>;
+    using ProportionalDerivativeControllerR3d = ProportionalDerivativeController<manif::R3d>;
 }
 
 #endif
