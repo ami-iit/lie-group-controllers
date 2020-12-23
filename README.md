@@ -40,8 +40,8 @@ At the moment, the controllers support all the group defined in `manif`. Namely:
 Please you can find further information in
 ```
 Modern Robotics: Mechanics, Planning, and Control,
-Kevin M. Lynch and Frank C. Park, 
-Cambridge University Press, 2017, 
+Kevin M. Lynch and Frank C. Park,
+Cambridge University Press, 2017,
 ISBN 9781107156302
 ```
 
@@ -64,15 +64,15 @@ cmake --build .
 ```
 If you want to enable tests set the `BUILD_TESTING` option to `ON`.
 
-## Use lie-groups-controllers in your project
+## Use lie-group-controllers in your project
 
-**lie-groups-controllers** provides native CMake support which allows the library to be easily used in CMake projects. Please add in your `CMakeLists.txt`
+**lie-group-controllers** provides native CMake support which allows the library to be easily used in CMake projects. Please add in your `CMakeLists.txt`
 
 ```cmake
 project(foo)
-find_package(LieGroupsControllers REQUIRED)
+find_package(LieGroupControllers REQUIRED)
 add_executable(${PROJECT_NAME} src/foo.cpp)
-target_link_libraries(${PROJECT_NAME} LieGroupsControllers::LieGroupsControllers)
+target_link_libraries(${PROJECT_NAME} LieGroupControllers::LieGroupControllers)
 ```
 
 ## Bug reports and support

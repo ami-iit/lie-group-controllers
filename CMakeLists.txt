@@ -73,6 +73,7 @@ set(LIBRARY_TARGET_NAME LieGroupControllers)
 
 set(${LIBRARY_TARGET_NAME}_PUBLIC_HDR
   include/LieGroupControllers/ProportionalController.h
+  include/LieGroupControllers/ProportionalDerivativeController.h
   )
 
 set(${LIBRARY_TARGET_NAME}_PRIVATE_HDR
