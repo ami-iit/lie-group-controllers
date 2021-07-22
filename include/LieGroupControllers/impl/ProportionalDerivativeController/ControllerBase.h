@@ -74,6 +74,24 @@ public:
      * express the vector in a different tangent space.
      */
     const Vector& getControl() const;
+
+    /**
+     * Get the state of the system.
+     * @return the state of the system.
+     */
+    const State& getState() const;
+
+    /**
+     * Get the desired state of the system.
+     * @return the state of the system.
+     */
+    const State& getDesiredState() const;
+
+    /**
+     * Get the feedforward term.
+     * @return the controller feedforward.
+     */
+    const Vector& getFeedForward() const;
 };
 
 template <typename _Derived>
@@ -128,6 +146,27 @@ const typename ProportionalDerivativeControllerBase<_Derived>::Vector&
 ProportionalDerivativeControllerBase<_Derived>::getControl() const
 {
     return m_controlOutput;
+}
+
+template <class _Derived>
+const typename ProportionalDerivativeControllerBase<_Derived>::State&
+ProportionalDerivativeControllerBase<_Derived>::getState() const
+{
+    return m_state;
+}
+
+template <class _Derived>
+const typename ProportionalDerivativeControllerBase<_Derived>::State&
+ProportionalDerivativeControllerBase<_Derived>::getDesiredState() const
+{
+    return m_desiredState;
+}
+
+template <class _Derived>
+const typename ProportionalDerivativeControllerBase<_Derived>::Vector&
+ProportionalDerivativeControllerBase<_Derived>::getFeedForward() const
+{
+    return m_feedForward;
 }
 
 } // namespace LieGroupControllers

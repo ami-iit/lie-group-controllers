@@ -80,6 +80,24 @@ public:
      * express the vector in a different tangent space.
      */
     const Vector& getControl() const;
+
+    /**
+     * Get the state of the system.
+     * @return the state of the system.
+     */
+    const State& getState() const;
+
+    /**
+     * Get the desired state of the system.
+     * @return the state of the system.
+     */
+    const State& getDesiredState() const;
+
+    /**
+     * Get the feedforward term.
+     * @return the controller feedforward.
+     */
+    const Vector& getFeedForward() const;
 };
 
 template <class _Derived>
@@ -116,6 +134,24 @@ template <class _Derived>
 const typename ControllerBase<_Derived>::Vector& ControllerBase<_Derived>::getControl() const
 {
     return this->derived().getControl();
+}
+
+template <class _Derived>
+const typename ControllerBase<_Derived>::State& ControllerBase<_Derived>::getState() const
+{
+    return this->derived().getState();
+}
+
+template <class _Derived>
+const typename ControllerBase<_Derived>::State& ControllerBase<_Derived>::getDesiredState() const
+{
+    return this->derived().getDesiredState();
+}
+
+template <class _Derived>
+const typename ControllerBase<_Derived>::Vector& ControllerBase<_Derived>::getFeedForward() const
+{
+    return this->derived().getFeedForward();
 }
 
 } // namespace LieGroupControllers
