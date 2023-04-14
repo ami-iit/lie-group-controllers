@@ -11,6 +11,7 @@
 #include <manif/manif.h>
 
 #include <LieGroupControllers/ProportionalDerivativeController.h>
+
 using namespace LieGroupControllers;
 
 TEST_CASE("Proportional Derivative Controller [SO(3)] with scalar kp and kd")
@@ -27,8 +28,8 @@ TEST_CASE("Proportional Derivative Controller [SO(3)] with scalar kp and kd")
     ProportionalDerivativeControllerSO3d controller;
     constexpr double kp = 10;
     const double kd = 2 * std::sqrt(kp);
-    controller.setGains({kp, kd});
-    controller.setDesiredState({desiredState, desiredStateDerivative});
+    controller.setGains(kp, kd);
+    controller.setDesiredState(desiredState, desiredStateDerivative);
     controller.setFeedForward(feedForward);
 
     // Test the controller
@@ -36,7 +37,7 @@ TEST_CASE("Proportional Derivative Controller [SO(3)] with scalar kp and kd")
     constexpr std::size_t numberOfIteration = 1e3;
     for (std::size_t i = 0; i < numberOfIteration; i++)
     {
-        controller.setState({state, stateDerivative});
+        controller.setState(state, stateDerivative);
         controller.computeControlLaw();
         auto controlOutput = controller.getControl();
 
@@ -74,8 +75,8 @@ TEST_CASE("Proportional Derivative Controller [SO(3)] with vector kp and kd")
     ProportionalDerivativeControllerSO3d controller;
     const Eigen::Vector3d kp = Eigen::Vector3d::Constant(10);
     const Eigen::Vector3d kd = 2 * Eigen::Vector3d::Constant(std::sqrt(10));
-    controller.setGains({kp, kd});
-    controller.setDesiredState({desiredState, desiredStateDerivative});
+    controller.setGains(kp, kd);
+    controller.setDesiredState(desiredState, desiredStateDerivative);
     controller.setFeedForward(feedForward);
 
     // Test the controller
@@ -83,7 +84,7 @@ TEST_CASE("Proportional Derivative Controller [SO(3)] with vector kp and kd")
     constexpr std::size_t numberOfIteration = 1e3;
     for (std::size_t i = 0; i < numberOfIteration; i++)
     {
-        controller.setState({state, stateDerivative});
+        controller.setState(state, stateDerivative);
         controller.computeControlLaw();
         auto controlOutput = controller.getControl();
 
@@ -121,8 +122,8 @@ TEST_CASE("Proportional Derivative Controller [SE(3)]")
     ProportionalDerivativeControllerSE3d controller;
     constexpr double kp = 10;
     const double kd = 2 * std::sqrt(kp);
-    controller.setGains({kp, kd});
-    controller.setDesiredState({desiredState, desiredStateDerivative});
+    controller.setGains(kp, kd);
+    controller.setDesiredState(desiredState, desiredStateDerivative);
 
     controller.setFeedForward(feedForward);
 
@@ -131,7 +132,7 @@ TEST_CASE("Proportional Derivative Controller [SE(3)]")
     constexpr std::size_t numberOfIteration = 1e3;
     for (std::size_t i = 0; i < numberOfIteration; i++)
     {
-        controller.setState({state, stateDerivative});
+        controller.setState(state, stateDerivative);
         controller.computeControlLaw();
         auto controlOutput = controller.getControl();
 
@@ -169,8 +170,8 @@ TEST_CASE("Proportional Derivative Controller [R3]")
     ProportionalDerivativeControllerR3d controller;
     constexpr double kp = 10;
     const double kd = 2 * std::sqrt(kp);
-    controller.setGains({kp, kd});
-    controller.setDesiredState({desiredState, desiredStateDerivative});
+    controller.setGains(kp, kd);
+    controller.setDesiredState(desiredState, desiredStateDerivative);
     controller.setFeedForward(feedForward);
 
     // Test the controller
@@ -178,7 +179,7 @@ TEST_CASE("Proportional Derivative Controller [R3]")
     constexpr std::size_t numberOfIteration = 1e3;
     for (std::size_t i = 0; i < numberOfIteration; i++)
     {
-        controller.setState({state, stateDerivative});
+        controller.setState(state, stateDerivative);
         controller.computeControlLaw();
         auto controlOutput = controller.getControl();
 

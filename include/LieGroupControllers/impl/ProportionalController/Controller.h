@@ -8,7 +8,10 @@
 #ifndef LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_CONTROLLER_H
 #define LIE_GROUP_CONTROLLERS_IMPL_PROPORTIONAL_CONTROLLER_CONTROLLER_H
 
+#include <tuple>
 #include <type_traits>
+
+#include <Eigen/Dense>
 
 #include <LieGroupControllers/impl/ProportionalController/ControllerBase.h>
 #include <manif/manif.h>
@@ -26,10 +29,10 @@ template <typename _LieGroupType> struct traits<ProportionalController<_LieGroup
 {
     using LieGroup = typename manif::LieGroupBase<_LieGroupType>::LieGroup;
     using Tangent = typename manif::LieGroupBase<_LieGroupType>::Tangent;
-    using State = LieGroup;
+    using State = std::tuple<LieGroup>;
     using Vector = Tangent;
-    using ScalarGains = typename LieGroup::Scalar;
-    using Gains = Eigen::Matrix<typename LieGroup::Scalar, Tangent::DoF, 1>;
+    using ScalarGains = std::tuple<typename LieGroup::Scalar>;
+    using Gains = std::tuple<Eigen::Matrix<typename LieGroup::Scalar, Tangent::DoF, 1>>;
 };
 
 } // namespace internal

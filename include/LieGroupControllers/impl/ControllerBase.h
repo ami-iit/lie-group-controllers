@@ -45,14 +45,16 @@ public:
      * @param state of the system.
      * @return true in case of success, false otherwise.
      */
-    bool setState(const State& state);
+    template <typename... Ts>
+    bool setState(Ts&&... state);
 
     /**
      * Set the desired state.
      * @param state of the system.
      * @return true in case of success, false otherwise.
      */
-    bool setDesiredState(const State& state);
+    template <typename... Ts>
+    bool setDesiredState(Ts&&... state);
 
     /**
      * Set the feedforward term of the controller.
@@ -63,15 +65,10 @@ public:
 
     /**
      * Set the controller gains.
-     * @param gains contains the controller gains.
-     */
-    void setGains(const Gains& gains);
-
-    /**
-     * Set the controller gains.
      * @param gains contains the controller gain.
      */
-    void setGains(const ScalarGains& gains);
+    template <typename... Ts>
+    void setGains(Ts&&... gains);
 
     /**
      * Evaluate the control law.
@@ -108,63 +105,60 @@ public:
 };
 
 template <class _Derived>
-bool ControllerBase<_Derived>::setState(const ControllerBase<_Derived>::State& state)
+template <typename... Ts>
+bool ControllerBase<_Derived>::setState(Ts&&... state)
 {
-    return this->derived().setState(state);
+    return this->derived().setStateImpl(std::make_tuple(std::forward<Ts>(state)...));
 }
 
 template <class _Derived>
-bool ControllerBase<_Derived>::setDesiredState(const ControllerBase<_Derived>::State& state)
+template <typename... Ts>
+bool ControllerBase<_Derived>::setDesiredState(Ts&&... state)
 {
-    return this->derived().setDesiredState(state);
+    return this->derived().setDesiredStateImpl(std::make_tuple(std::forward<Ts>(state)...));
 }
 
 template <class _Derived>
 bool ControllerBase<_Derived>::setFeedForward(const ControllerBase<_Derived>::Vector& feedForward)
 {
-    return this->derived().setFeedForward(feedForward);
+    return this->derived().setFeedForwardImpl(feedForward);
 }
 
-template <class _Derived> void ControllerBase<_Derived>::setGains(const Gains& gains)
+template <class _Derived>
+template <typename... Ts>
+void ControllerBase<_Derived>::setGains(Ts&&... gains)
 {
-    this->derived().setGains(gains);
-    return;
-}
-
-template <class _Derived> void ControllerBase<_Derived>::setGains(const ScalarGains& gains)
-{
-    this->derived().setGains(gains);
-    return;
+    this->derived().setGainsImpl(std::make_tuple(std::forward<Ts>(gains)...));
 }
 
 template <class _Derived> void ControllerBase<_Derived>::computeControlLaw()
 {
-    this->derived().computeControlLaw();
+    this->derived().computeControlLawImpl();
     return;
 }
 
 template <class _Derived>
 const typename ControllerBase<_Derived>::Vector& ControllerBase<_Derived>::getControl() const
 {
-    return this->derived().getControl();
+    return this->derived().getControlImpl();
 }
 
 template <class _Derived>
 const typename ControllerBase<_Derived>::State& ControllerBase<_Derived>::getState() const
 {
-    return this->derived().getState();
+    return this->derived().getStateImpl();
 }
 
 template <class _Derived>
 const typename ControllerBase<_Derived>::State& ControllerBase<_Derived>::getDesiredState() const
 {
-    return this->derived().getDesiredState();
+    return this->derived().getDesiredStateImpl();
 }
 
 template <class _Derived>
 const typename ControllerBase<_Derived>::Vector& ControllerBase<_Derived>::getFeedForward() const
 {
-    return this->derived().getFeedForward();
+    return this->derived().getFeedForwardImpl();
 }
 
 } // namespace LieGroupControllers
