@@ -9,7 +9,6 @@ on:
   - cron:  '0 2 * * *'
 
 env:
-  Catch2_TAG: v2.12.1
   manif_TAG: 78cc83d8292736b26a3a4f6d302057a6b80056a4
 
 # Test with different operating systems
@@ -46,12 +45,12 @@ jobs:
     - name: Dependencies [Windows]
       if: matrix.os == 'windows-latest'
       run: |
-        vcpkg install --triplet x64-windows eigen3 catch2
+        vcpkg install --triplet x64-windows eigen3
 
     - name: Dependencies [macOS]
       if: matrix.os == 'macOS-latest'
       run: |
-        brew install eigen catch2
+        brew install eigen
 
     - name: Dependencies [Ubuntu]
       if: matrix.os == 'ubuntu-latest'
@@ -64,7 +63,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: ${{ github.workspace }}/install/deps
-        key: source-deps-${{ runner.os }}-manif-${{ env.manif_TAG }}-catch2-${{ env.Catch2_TAG }}
+        key: source-deps-${{ runner.os }}-manif-${{ env.manif_TAG }}
 
     - name: Source-based Dependencies [Windows]
       if: steps.cache-source-deps.outputs.cache-hit != 'true' && matrix.os == 'windows-latest'
@@ -95,20 +94,6 @@ jobs:
         cd build
         cmake -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/install/deps ..
         cmake --build . --config ${{ matrix.build_type }} --target install
-
-
-    - name: Source-based Dependencies [Ubuntu]
-      if: steps.cache-source-deps.outputs.cache-hit != 'true' && matrix.os == 'ubuntu-latest'
-      shell: bash
-      run: |
-         git clone -b ${Catch2_TAG} https://github.com/catchorg/Catch2.git
-         cd Catch2
-         mkdir -p build
-         cd build
-         cmake  -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/install/deps \
-                -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/install/deps \
-                -DBUILD_TESTING=OFF ..
-         cmake --build . --config ${{ matrix.build_type }} --target install
 
     # ===================
     # CMAKE-BASED PROJECT
