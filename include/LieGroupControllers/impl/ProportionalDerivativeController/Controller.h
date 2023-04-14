@@ -29,7 +29,9 @@ template <typename _LieGroupType> struct traits<ProportionalDerivativeController
     using Tangent = typename manif::LieGroupBase<_LieGroupType>::Tangent;
     using State = std::tuple<LieGroup, Tangent>;
     using Vector = Tangent;
-    using Gains = std::tuple<double, double>;
+    using ScalarGains = std::tuple<typename LieGroup::Scalar, typename LieGroup::Scalar>;
+    using Gains = std::tuple<Eigen::Matrix<typename LieGroup::Scalar, Tangent::DoF, 1>,
+                             Eigen::Matrix<typename LieGroup::Scalar, Tangent::DoF, 1>>;
 };
 
 } // namespace internal

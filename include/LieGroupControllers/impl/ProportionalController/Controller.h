@@ -28,7 +28,8 @@ template <typename _LieGroupType> struct traits<ProportionalController<_LieGroup
     using Tangent = typename manif::LieGroupBase<_LieGroupType>::Tangent;
     using State = LieGroup;
     using Vector = Tangent;
-    using Gains = double;
+    using ScalarGains = typename LieGroup::Scalar;
+    using Gains = Eigen::Matrix<typename LieGroup::Scalar, Tangent::DoF, 1>;
 };
 
 } // namespace internal

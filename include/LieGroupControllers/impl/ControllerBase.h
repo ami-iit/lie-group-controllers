@@ -25,6 +25,7 @@ public:
     using Vector = typename internal::traits<_Derived>::Vector; /**< Here we consider a Vector an
                                                                    element of the lie algebra of
                                                                    the Group. */
+    using ScalarGains = typename internal::traits<_Derived>::ScalarGains; /** TODO */
     using Gains = typename internal::traits<_Derived>::Gains; /**< Gains used by the controller */
     using LieGroup = typename internal::traits<_Derived>::LieGroup; /**< Lie Group */
 
@@ -65,6 +66,12 @@ public:
      * @param gains contains the controller gains.
      */
     void setGains(const Gains& gains);
+
+    /**
+     * Set the controller gains.
+     * @param gains contains the controller gain.
+     */
+    void setGains(const ScalarGains& gains);
 
     /**
      * Evaluate the control law.
@@ -119,6 +126,12 @@ bool ControllerBase<_Derived>::setFeedForward(const ControllerBase<_Derived>::Ve
 }
 
 template <class _Derived> void ControllerBase<_Derived>::setGains(const Gains& gains)
+{
+    this->derived().setGains(gains);
+    return;
+}
+
+template <class _Derived> void ControllerBase<_Derived>::setGains(const ScalarGains& gains)
 {
     this->derived().setGains(gains);
     return;

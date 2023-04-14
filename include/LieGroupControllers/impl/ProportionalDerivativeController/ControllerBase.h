@@ -18,6 +18,7 @@ class ProportionalDerivativeControllerBase : public ControllerBase<_Derived>
 {
     using State = typename ControllerBase<_Derived>::State;
     using Vector = typename ControllerBase<_Derived>::Vector;
+    using ScalarGains = typename ControllerBase<_Derived>::ScalarGains;
     using Gains = typename ControllerBase<_Derived>::Gains;
     using LieGroup = typename ControllerBase<_Derived>::LieGroup;
 
@@ -25,7 +26,7 @@ class ProportionalDerivativeControllerBase : public ControllerBase<_Derived>
     State m_desiredState{LieGroup::Identity(), Vector::Zero()};
     Vector m_feedForward{Vector::Zero()};
     Vector m_controlOutput{Vector::Zero()};
-    Gains m_gain{0, 0};
+    Gains m_gain{std::tuple_element<0,Gains>::type::Zero(), std::tuple_element<0,Gains>::type::Zero()};
 
 public:
     /**
@@ -59,6 +60,13 @@ public:
      * @note for the ProportionalController the gain is simply a double.
      */
     void setGains(const Gains& gains);
+
+    /**
+     * Set the controller gains.
+     * @param gains contains the controller gains.
+     * @note for the ProportionalController the gain is simply a double TODO.
+     */
+    void setGains(const ScalarGains& gains);
 
     /**
      * Evaluate the control law.
@@ -121,11 +129,18 @@ void ProportionalDerivativeControllerBase<_Derived>::setGains(const Gains& gain)
     m_gain = gain;
 }
 
+template <typename _Derived> void ProportionalDerivativeControllerBase<_Derived>::setGains(const ScalarGains& gain)
+{
+    std::get<0>(m_gain).setConstant(std::get<0>(gain));
+    std::get<1>(m_gain).setConstant(std::get<1>(gain));
+}
+
+
 template <typename _Derived>
 void ProportionalDerivativeControllerBase<_Derived>::computeControlLaw()
 {
-    const double& kp = std::get<0>(m_gain);
-    const double& kd = std::get<1>(m_gain);
+    const typename std::tuple_element<0,Gains>::type& kp = std::get<0>(m_gain);
+    const typename std::tuple_element<1,Gains>::type& kd = std::get<1>(m_gain);
 
     const auto& state = std::get<0>(m_state);
     const auto& stateDerivative = std::get<1>(m_state);
@@ -138,7 +153,9 @@ void ProportionalDerivativeControllerBase<_Derived>::computeControlLaw()
     Vector errorStateDerivative = desiredStateDerivative - stateDerivative;
 
     // compute the control law
-    m_controlOutput = m_feedForward + errorStateDerivative * kd + errorState * kp;
+    m_controlOutput = m_feedForward;
+    m_controlOutput += kd.asDiagonal() * errorStateDerivative.coeffs();
+    m_controlOutput += kp.asDiagonal() * errorState.coeffs();
 }
 
 template <typename _Derived>

@@ -17,13 +17,14 @@ template <typename _Derived> class ProportionalControllerBase : public Controlle
 {
     using State = typename ControllerBase<_Derived>::State;
     using Vector = typename ControllerBase<_Derived>::Vector;
+    using ScalarGains = typename ControllerBase<_Derived>::ScalarGains;
     using Gains = typename ControllerBase<_Derived>::Gains;
 
     State m_state{State::Identity()};
     State m_desiredState{State::Identity()};
     Vector m_feedForward{Vector::Zero()};
     Vector m_controlOutput{Vector::Zero()};
-    Gains m_gain{0};
+    Gains m_gain{Gains::Zero()};
 
 public:
     /**
@@ -52,9 +53,16 @@ public:
     /**
      * Set the controller gains.
      * @param gains contains the controller gains.
-     * @note for the ProportionalController the gain is simply a double.
+     * @note for the ProportionalController the gain is simply a double TODO.
      */
     void setGains(const Gains& gains);
+
+    /**
+     * Set the controller gains.
+     * @param gains contains the controller gains.
+     * @note for the ProportionalController the gain is simply a double TODO.
+     */
+    void setGains(const ScalarGains& gains);
 
     /**
      * Evaluate the control law.
@@ -115,6 +123,11 @@ template <typename _Derived> void ProportionalControllerBase<_Derived>::setGains
     m_gain = gain;
 }
 
+template <typename _Derived> void ProportionalControllerBase<_Derived>::setGains(const ScalarGains& gain)
+{
+    m_gain.setConstant(gain);
+}
+
 template <typename _Derived> void ProportionalControllerBase<_Derived>::computeControlLaw()
 {
     // please read it as
@@ -122,7 +135,7 @@ template <typename _Derived> void ProportionalControllerBase<_Derived>::computeC
     // Indeed here log() is a sequence of an actual logarithm mapping of the group plus a vee
     // operator.
     auto error = (m_desiredState.compose(m_state.inverse())).log();
-    m_controlOutput = m_feedForward + error * m_gain;
+    m_controlOutput = m_feedForward + m_gain.asDiagonal() * error.coeffs();
 }
 
 template <typename _Derived>
