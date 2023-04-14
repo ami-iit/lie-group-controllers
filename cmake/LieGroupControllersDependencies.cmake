@@ -10,8 +10,5 @@ find_package(manif REQUIRED)
 
 #---------------------------------------------
 ## Optional Dependencies
-find_package(Catch2 QUIET)
-checkandset_optional_dependency(Catch2)
-
 find_package(VALGRIND QUIET)
 checkandset_optional_dependency(VALGRIND)
