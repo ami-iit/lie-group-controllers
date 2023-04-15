@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(LieGroupControllers
-  VERSION 0.1.1)
+  VERSION 0.2.0)
 
 # ouptut paths
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
