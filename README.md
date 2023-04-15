@@ -22,9 +22,9 @@ The library implements two controllers:
 
 The controllers have the following form
 
-|       Proportional Controller      | Proportional Derivative Controller |
-|:-----------------------:|:-------------:|
-| ![img-f6214bd2482f678b](https://user-images.githubusercontent.com/16744101/89174620-77c5b100-d586-11ea-88f7-318343c13b0f.png)  | ![img-40c85670ed9bec65](https://user-images.githubusercontent.com/16744101/89174628-7b593800-d586-11ea-8219-d3ea2cb70901.png)        |
+|                       Proportional Controller                   |                                    Proportional Derivative Controller                                         |
+|:---------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------:|
+|  $\psi = \psi^d + k_p \text{Log}\left(X^d \circ X^{-1}\right)$  |  $\dot{\psi} = \dot{\psi}^d + k_d \left(\psi^d - \psi \right) +  k_p \text{Log}\left(X^d \circ X^{-1}\right)$ |
 
 where `X` and `Xᵈ` are elements of a Lie group. `∘` is the group operator. `ψ` represents an element in the Lie algebra of the Lie group whose coordinates are expressed in `ℝⁿ`.
 
