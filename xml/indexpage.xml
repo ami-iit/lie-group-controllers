@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>lie-group-controllers</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md__home_runner_work_lie_group_controllers_lie_group_controllers_README"/> </para>
+<para><heading level="1">lie-group-controllers </heading>
+</para>
+<para></para>
+<para><ulink url="https://isocpp.org"><image type="html" name="https://img.shields.io/badge/standard-C++17-blue.svg?style=flat&amp;logo=c%2B%2B" alt="C++ Standard" inline="yes"></image>
+</ulink> <ulink url="./LICENSE"><image type="html" name="https://img.shields.io/badge/license-LGPL-19c2d8.svg" alt="Size" inline="yes"></image>
+</ulink> <ulink url="https://ami-iit.github.io/lie-group-controllers/doxygen/doc/html/index.html"><image type="html" name="https://github.com/ami-iit/lie-group-controllers/workflows/GitHub%20Pages/badge.svg" alt="Size" inline="yes"></image>
+</ulink> <ulink url="https://github.com/ami-iit/lie-group-controllers/actions?query=workflow%3A%22C%2B%2B+CI+Workflow%22"><image type="html" name="https://github.com/ami-iit/lie-group-controllers/workflows/C++%20CI%20Workflow/badge.svg" alt="Size" inline="yes"></image>
+</ulink> </para>
+<para></para>
+<para><bold>Header-only C++ library containing controllers designed for Lie Groups</bold></para>
+<sect2 id="index_1autotoc_md0">
+<title>Some theory behind the library</title>
+<para>The library aims to contain some controllers designed in lie groups. The library depends only on <computeroutput>Eigen</computeroutput> and <ulink url="https://github.com/artivis/manif"><computeroutput>manif</computeroutput></ulink>.</para>
+<para>All the controllers defined in <computeroutput>lie-group-controllers</computeroutput> have in common that they inherit from a templated base class (<ulink url="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">CRTP</ulink>). It allows one to write generic code abstracting the controller details. This follows the structure of <computeroutput>manif</computeroutput> and <computeroutput>Eigen</computeroutput>.</para>
+<para>The library implements two controllers:<orderedlist>
+<listitem><para>Proportional Controller (<computeroutput>P controller</computeroutput>)</para>
+</listitem><listitem><para>Proportional Derivative Controller (<computeroutput>PD controller</computeroutput>)</para>
+</listitem></orderedlist>
+</para>
+<para>The controllers have the following form</para>
+<para><table rows="2" cols="2"><row>
+<entry thead="yes" align='center'><para>Proportional Controller   </para>
+</entry><entry thead="yes" align='center'><para>Proportional Derivative Controller    </para>
+</entry></row>
+<row>
+<entry thead="no" align='center'><para><image type="html" name="https://user-images.githubusercontent.com/16744101/89174620-77c5b100-d586-11ea-88f7-318343c13b0f.png" alt="img-f6214bd2482f678b" inline="yes"></image>
+   </para>
+</entry><entry thead="no" align='center'><para><image type="html" name="https://user-images.githubusercontent.com/16744101/89174628-7b593800-d586-11ea-8219-d3ea2cb70901.png" alt="img-40c85670ed9bec65" inline="yes"></image>
+   </para>
+</entry></row>
+</table>
+</para>
+<para>where <computeroutput>X</computeroutput> and <computeroutput>Xᵈ</computeroutput> are elements of a Lie group. <computeroutput>∘</computeroutput> is the group operator. <computeroutput>ψ</computeroutput> represents an element in the Lie algebra of the Lie group whose coordinates are expressed in <computeroutput>ℝⁿ</computeroutput>.</para>
+<para>The controllers support all the groups defined in <computeroutput>manif</computeroutput>. Namely:<itemizedlist>
+<listitem><para>ℝ(n): Euclidean space with addition.</para>
+</listitem><listitem><para>SO(2): rotations in the plane.</para>
+</listitem><listitem><para>SE(2): rigid motion (rotation and translation) in the plane.</para>
+</listitem><listitem><para>SO(3): rotations in 3D space.</para>
+</listitem><listitem><para>SE(3): rigid motion (rotation and translation) in 3D space.</para>
+</listitem></itemizedlist>
+</para>
+<para>Please you can find further information in <programlisting><codeline><highlight class="normal">Modern<sp/>Robotics:<sp/>Mechanics,<sp/>Planning,<sp/>and<sp/>Control,</highlight></codeline>
+<codeline><highlight class="normal">Kevin<sp/>M.<sp/>Lynch<sp/>and<sp/>Frank<sp/>C.<sp/>Park,</highlight></codeline>
+<codeline><highlight class="normal">Cambridge<sp/>University<sp/>Press,<sp/>2017,</highlight></codeline>
+<codeline><highlight class="normal">ISBN<sp/>9781107156302</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="index_1autotoc_md1">
+<title>Basic Usage</title>
+<para>The library implements proportional and proportional derivative controllers on Lie groups. What follows are two simple snippets that you can follow to build and use such controllers. For sake of simplicity, only controllers in SO(3) are shown. The very same applies to the other Lie groups</para>
+</sect2>
+<sect2 id="index_1autotoc_md2">
+<title>Proportional controller SO(3)</title>
+<para><programlisting filename=".cpp"><codeline><highlight class="comment">//<sp/>set<sp/>random<sp/>initial<sp/>state<sp/>and<sp/>zero<sp/>feedforward</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">manif::SO3d<sp/>desiredState,<sp/>state;</highlight></codeline>
+<codeline><highlight class="normal">desiredState.setRandom();</highlight></codeline>
+<codeline><highlight class="normal">state.setRandom();</highlight></codeline>
+<codeline><highlight class="normal">Eigen::Vector3d<sp/>feedForward<sp/>=<sp/>Eigen::Vector3d::Zero();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>create<sp/>the<sp/>controller.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">ProportionalControllerSO3d<sp/>controller;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>proportional<sp/>gain</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>kp<sp/>=<sp/>10;</highlight></codeline>
+<codeline><highlight class="normal">controller.setGains(kp);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>desired<sp/>state,<sp/>the<sp/>feed-forward,<sp/>and<sp/>the<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">controller.setDesiredState(desiredState);</highlight></codeline>
+<codeline><highlight class="normal">controller.setFeedForward(feedForward);</highlight></codeline>
+<codeline><highlight class="normal">controller.setState(state);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>compute<sp/>the<sp/>control<sp/>law</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">controller.computeControlLaw();</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>controlOutput<sp/>=<sp/>controller.getControl();</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="index_1autotoc_md3">
+<title>Proportional Derivative controller SO(3)</title>
+<para><programlisting filename=".cpp"><codeline><highlight class="comment">//<sp/>set<sp/>random<sp/>initial<sp/>state<sp/>and<sp/>zero<sp/>feedforward</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">manif::SO3d<sp/>desiredState,<sp/>state;</highlight></codeline>
+<codeline><highlight class="normal">desiredState.setRandom();</highlight></codeline>
+<codeline><highlight class="normal">state.setRandom();</highlight></codeline>
+<codeline><highlight class="normal">manif::SO3d::Tangent<sp/>stateDerivative<sp/>=<sp/>Eigen::Vector3d::Zero();</highlight></codeline>
+<codeline><highlight class="normal">manif::SO3d::Tangent<sp/>desiredStateDerivative<sp/>=<sp/>Eigen::Vector3d::Zero();</highlight></codeline>
+<codeline><highlight class="normal">Eigen::Vector3d<sp/>feedForward<sp/>=<sp/>Eigen::Vector3d::Zero();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>create<sp/>the<sp/>controller.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">ProportionalDerivativeControllerSO3d<sp/>controller;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>proportional<sp/>and<sp/>the<sp/>derivative<sp/>gains</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>kp<sp/>=<sp/>10;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>kd<sp/>=<sp/>2<sp/>*<sp/><ref refid="cpp/numeric/math/sqrt" kindref="compound" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml">std::sqrt</ref>(kp);</highlight></codeline>
+<codeline><highlight class="normal">controller.setGains(kp,<sp/>kd);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>desired<sp/>state,<sp/>its<sp/>derivative,<sp/>the<sp/>feed-forward,<sp/>and<sp/>the<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">controller.setDesiredState(desiredState,<sp/>desiredStateDerivative);</highlight></codeline>
+<codeline><highlight class="normal">controller.setFeedForward(feedForward);</highlight></codeline>
+<codeline><highlight class="normal">controller.setState(state,<sp/>stateDerivative);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>compute<sp/>the<sp/>control<sp/>law</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">controller.computeControlLaw();</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>controlOutput<sp/>=<sp/>controller.getControl();</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="index_1autotoc_md4">
+<title>Dependeces</title>
+<para><itemizedlist>
+<listitem><para><ulink url="https://github.com/artivis/manif">manif</ulink></para>
+</listitem><listitem><para><ulink url="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen3</ulink></para>
+</listitem><listitem><para><ulink url="https://cmake.org/">cmake</ulink></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="index_1autotoc_md5">
+<title>Build the library</title>
+<para><programlisting filename=".console"><codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/GiulioRomualdi/lie-group-controllers.git</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>lie-group-controllers</highlight></codeline>
+<codeline><highlight class="normal">mkdir<sp/>build<sp/>&amp;&amp;<sp/>cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>../</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>.</highlight></codeline>
+<codeline><highlight class="normal">[sudo]<sp/>cmake<sp/>--build<sp/>.<sp/>--target<sp/>install</highlight></codeline>
+</programlisting> If you want to enable tests set the <computeroutput>BUILD_TESTING</computeroutput> option to <computeroutput>ON</computeroutput>.</para>
+</sect2>
+<sect2 id="index_1autotoc_md6">
+<title>Use lie-group-controllers in your project</title>
+<para><bold>lie-group-controllers</bold> provides native CMake support which allows the library to be easily used in CMake projects. Please add in your <computeroutput>CMakeLists.txt</computeroutput></para>
+<para><programlisting filename=".cmake"><codeline><highlight class="normal">project(foo)</highlight></codeline>
+<codeline><highlight class="normal">find_package(LieGroupControllers<sp/>REQUIRED)</highlight></codeline>
+<codeline><highlight class="normal">add_executable(${PROJECT_NAME}<sp/>src/foo.cpp)</highlight></codeline>
+<codeline><highlight class="normal">target_link_libraries(${PROJECT_NAME}<sp/>LieGroupControllers::LieGroupControllers)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="index_1autotoc_md7">
+<title>Bug reports and support</title>
+<para>All types of <ulink url="https://github.com/ami-iit/lie-group-controllers/issues/new">issues</ulink> are welcome.</para>
+</sect2>
+<sect2 id="index_1autotoc_md8">
+<title>Note</title>
+<para>The original version of the library can be found <ulink url="https://github.com/GiulioRomualdi/lie-group-controllers">here</ulink>. </para>
+</sect2>
+    </detaileddescription>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/README.md"/>
+  </compounddef>
+</doxygen>

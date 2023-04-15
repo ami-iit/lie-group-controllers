@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_proportional_derivative_controller_2_controller_base_8h" kind="file" language="C++">
+    <compoundname>ProportionalDerivativeController/ControllerBase.h</compoundname>
+    <includes refid="_controller_base_8h" local="no">LieGroupControllers/impl/ControllerBase.h</includes>
+    <includes local="no">tuple</includes>
+    <includedby refid="_proportional_derivative_controller_2_controller_8h" local="no">Controller.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>LieGroupControllers/impl/traits.h</label>
+        <link refid="traits_8h"/>
+      </node>
+      <node id="2">
+        <label>LieGroupControllers/impl/ControllerBase.h</label>
+        <link refid="_controller_base_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tuple</label>
+        <link refid="cpp/header/tuple" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml"/>
+      </node>
+      <node id="1">
+        <label>ControllerBase.h</label>
+        <link refid="_proportional_derivative_controller_2_controller_base_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>ProportionalDerivativeController.h</label>
+        <link refid="_proportional_derivative_controller_8h"/>
+      </node>
+      <node id="1">
+        <label>ControllerBase.h</label>
+        <link refid="_proportional_derivative_controller_2_controller_base_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Controller.h</label>
+        <link refid="_proportional_derivative_controller_2_controller_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base" prot="public">LieGroupControllers::ProportionalDerivativeControllerBase</innerclass>
+    <innernamespace refid="namespace_lie_group_controllers">LieGroupControllers</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="authors"><para>Giulio Romualdi </para>
+</simplesect>
+<simplesect kind="copyright"><para>This software may be modified and distributed under the terms of the GNU Lesser General Public License v2.1 or any later version. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h"/>
+  </compounddef>
+</doxygen>

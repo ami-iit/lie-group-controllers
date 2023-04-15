@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_lie_group_controllers_1_1_proportional_controller" kind="class" language="C++" prot="public">
+    <compoundname>LieGroupControllers::ProportionalController</compoundname>
+    <basecompoundref refid="class_lie_group_controllers_1_1_proportional_controller_base" prot="public" virt="non-virtual">LieGroupControllers::ProportionalControllerBase&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</basecompoundref>
+    <includes refid="_proportional_controller_2_controller_8h" local="no">Controller.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename _LieGroupType</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+<para>ProporionalDerivativeController describes a PD controller on Lie Groups. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>_LieGroupType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>describes the Lie Group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>_LieGroupType must derived from manif::LieGroupBase&lt;_LieGroupType&gt; </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>LieGroupControllers::ProportionalControllerBase&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_controller_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>LieGroupControllers::ProportionalController&lt; _LieGroupType &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>LieGroupControllers::ControllerBase&lt; _Derived &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_controller_base"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>LieGroupControllers::ProportionalControllerBase&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_controller_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>LieGroupControllers::ProportionalController&lt; _LieGroupType &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>LieGroupControllers::ControllerBase&lt; _Derived &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_controller_base"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" line="50" column="1" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" bodystart="52" bodyend="55"/>
+    <listofallmembers>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1ac1434dcc3f6550eecf8a187679574977" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>computeControlLaw</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1aa312792997c8bfc2d90479ccd4e5fc33" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>computeControlLawImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1ade95d284a29ea519bdccb701999b8e2e" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>getControl</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1af21ba6473ef8e4cf2af7ca65d33e5330" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>getControlImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a2d16c2b2db6c27d152f790a954fc1011" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>getDesiredState</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1a2769a8111adcfdd72ac2d13aa5633f9d" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>getDesiredStateImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a359ae1e95054054c6489f926c22db830" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>getFeedForward</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1afb5a49a7d20f48e556d24f9f159a7f60" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>getFeedForwardImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1af13ccdf6eaf0714171145fcd82287658" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>getState</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1ae9152c5f0e73229724d6f3030dfd95dc" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>getStateImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a22452e18924b183b89624adba17edacc" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>LieGroup</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a6ec7549ba683ede7bcdc665b342dacde" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>setDesiredState</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1a2188fe3d2ef014447ec41b97fade3b60" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>setDesiredStateImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a1f1bb4f8be2965650770ad2db5bf8fa6" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>setFeedForward</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1a47525d774edbce24de65a9bdeb6e3eb6" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>setFeedForwardImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a418e4a563eccddfdedad8a769b376213" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>setGains</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1a4c7c9f2933ed16b69654ea63fd4b43b3" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>setGainsImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1aa7822bdd41c0ba9f824080647b78f0aa" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>setGainsImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1af9f07c2b365c554599534db03d6a4df5" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>setState</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_controller_base_1a37dedfcfbce26f4b5674c83c531734c6" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalController</scope><name>setStateImpl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

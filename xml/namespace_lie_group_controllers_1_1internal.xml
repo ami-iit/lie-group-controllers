@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespace_lie_group_controllers_1_1internal" kind="namespace" language="C++">
+    <compoundname>LieGroupControllers::internal</compoundname>
+    <innerclass refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4" prot="public">LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</innerclass>
+    <innerclass refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4" prot="public">LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</innerclass>
+    <innerclass refid="struct_lie_group_controllers_1_1internal_1_1traits" prot="public">LieGroupControllers::internal::traits</innerclass>
+    <innerclass refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01const_01_t_01_4" prot="public">LieGroupControllers::internal::traits&lt; const T &gt;</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" line="25" column="1"/>
+  </compounddef>
+</doxygen>

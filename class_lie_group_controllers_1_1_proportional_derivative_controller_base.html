@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LieGroupControllers::ProportionalDerivativeControllerBase class | lie-group-controllers</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">lie-group-controllers</a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="4">
+            <li><a href="https://github.com/ami-iit/lie-group-controllers">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-template">template&lt;typename _Derived&gt;</div>
+          <span class="m-breadcrumb"><a href="namespace_lie_group_controllers.html">LieGroupControllers</a>::<wbr/></span>ProportionalDerivativeControllerBase <span class="m-thin">class</span>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#base-classes">Base classes</a></li>
+                <li><a href="#pub-types">Public types</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="base-classes">
+          <h2><a href="#base-classes">Base classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <div class="m-doc-template">template&lt;class _Derived&gt;</div>
+              class <a href="class_lie_group_controllers_1_1_controller_base.html" class="m-doc">ControllerBase&lt;_Derived&gt;</a>
+            </dt>
+            <dd><a href="class_lie_group_controllers_1_1_controller_base.html" class="m-doc">ControllerBase</a> describes a base controller.</dd>
+          </dl>
+        </section>
+        <section id="pub-types">
+          <h2><a href="#pub-types">Public types</a></h2>
+          <dl class="m-doc">
+            <dt id="ab6cc8a4fbc173521b7244ac04b8ecbc6">
+              using <a href="#ab6cc8a4fbc173521b7244ac04b8ecbc6" class="m-doc-self">State</a> = typename <a href="class_lie_group_controllers_1_1_controller_base.html" class="m-doc">ControllerBase</a>&lt;_Derived&gt;::State
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa2ee59895e61e501c785c73cf42fe239">
+              using <a href="#aa2ee59895e61e501c785c73cf42fe239" class="m-doc-self">Vector</a> = typename <a href="class_lie_group_controllers_1_1_controller_base.html" class="m-doc">ControllerBase</a>&lt;_Derived&gt;::Vector
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a059f8dafdf506ad87cdfc72c49ccae29">
+              using <a href="#a059f8dafdf506ad87cdfc72c49ccae29" class="m-doc-self">ScalarGains</a> = typename <a href="class_lie_group_controllers_1_1_controller_base.html" class="m-doc">ControllerBase</a>&lt;_Derived&gt;::ScalarGains
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2b0a7dd75dec0bf30b437eaa45e0ad3a">
+              using <a href="#a2b0a7dd75dec0bf30b437eaa45e0ad3a" class="m-doc-self">Gains</a> = typename <a href="class_lie_group_controllers_1_1_controller_base.html" class="m-doc">ControllerBase</a>&lt;_Derived&gt;::Gains
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a7b1755431d2b250fb033b7d7a2d2fa5e">
+              using <a href="#a7b1755431d2b250fb033b7d7a2d2fa5e" class="m-doc-self">LieGroup</a> = typename <a href="class_lie_group_controllers_1_1_controller_base.html" class="m-doc">ControllerBase</a>&lt;_Derived&gt;::<a href="class_lie_group_controllers_1_1_controller_base.html#a22452e18924b183b89624adba17edacc" class="m-doc">LieGroup</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aab95e72007324e1d13c79f10aa48bba9" class="m-doc">setStateImpl</a>(</span><span class="m-doc-wrap">const State&amp; state) -&gt; bool</span>
+            </dt>
+            <dd>Set the control state.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a26079973353466ebfcf321f7c00ba908" class="m-doc">setDesiredStateImpl</a>(</span><span class="m-doc-wrap">const State&amp; state) -&gt; bool</span>
+            </dt>
+            <dd>Set the desired state.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a323e2ddce681563b211269e353be40de" class="m-doc">setFeedForwardImpl</a>(</span><span class="m-doc-wrap">const Vector&amp; feedForward) -&gt; bool</span>
+            </dt>
+            <dd>Set the feedforward term of the controller.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a382d26e4b51239f9b678f812d92560c5" class="m-doc">setGainsImpl</a>(</span><span class="m-doc-wrap">const Gains&amp; gains)</span>
+            </dt>
+            <dd>Set the controller gains.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a4cf6d51095d5642661cfc405b9a75ceb" class="m-doc">setGainsImpl</a>(</span><span class="m-doc-wrap">const ScalarGains&amp; gains)</span>
+            </dt>
+            <dd>Set the controller gains.</dd>
+            <dt id="a1f90adc6297bf6e581f57e090db1b586">
+              <span class="m-doc-wrap-bumper">void <a href="#a1f90adc6297bf6e581f57e090db1b586" class="m-doc-self">computeControlLawImpl</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Evaluate the control law.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a83652304ee12527c3a09cff13e4f4ac1" class="m-doc">getControlImpl</a>(</span><span class="m-doc-wrap">) const -&gt; const Vector&amp;</span>
+            </dt>
+            <dd>Get the control signal.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a14ee341e07395eb362622193d16fb1e4" class="m-doc">getStateImpl</a>(</span><span class="m-doc-wrap">) const -&gt; const State&amp;</span>
+            </dt>
+            <dd>Get the state of the system.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a56780e39690bacfc26a12f44d8541b65" class="m-doc">getDesiredStateImpl</a>(</span><span class="m-doc-wrap">) const -&gt; const State&amp;</span>
+            </dt>
+            <dd>Get the desired state of the system.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a96f20cf879f2a65c5ce466c11129e9b8" class="m-doc">getFeedForwardImpl</a>(</span><span class="m-doc-wrap">) const -&gt; const Vector&amp;</span>
+            </dt>
+            <dd>Get the feedforward term.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="aab95e72007324e1d13c79f10aa48bba9"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename _Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">bool LieGroupControllers::<wbr />ProportionalDerivativeControllerBase&lt;_Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aab95e72007324e1d13c79f10aa48bba9" class="m-doc-self">setStateImpl</a>(</span><span class="m-doc-wrap">const State&amp; state)</span></span>
+            </h3>
+            <p>Set the control state.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">state</td>
+                  <td>of the system.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true in case of success, false otherwise.</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-info"><h4>Note</h4><p>for the <a href="class_lie_group_controllers_1_1_proportional_derivative_controller.html" class="m-doc">ProportionalDerivativeController</a> the state is given by the element of the Lie group and one of it&#x27;s tangent space at the identity.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a26079973353466ebfcf321f7c00ba908"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename _Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">bool LieGroupControllers::<wbr />ProportionalDerivativeControllerBase&lt;_Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a26079973353466ebfcf321f7c00ba908" class="m-doc-self">setDesiredStateImpl</a>(</span><span class="m-doc-wrap">const State&amp; state)</span></span>
+            </h3>
+            <p>Set the desired state.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">state</td>
+                  <td>of the system.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true in case of success, false otherwise.</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-info"><h4>Note</h4><p>for the <a href="class_lie_group_controllers_1_1_proportional_derivative_controller.html" class="m-doc">ProportionalDerivativeController</a> the state is given by the element of the Lie group and one of it&#x27;s tangent space at the identity.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a323e2ddce681563b211269e353be40de"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename _Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">bool LieGroupControllers::<wbr />ProportionalDerivativeControllerBase&lt;_Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a323e2ddce681563b211269e353be40de" class="m-doc-self">setFeedForwardImpl</a>(</span><span class="m-doc-wrap">const Vector&amp; feedForward)</span></span>
+            </h3>
+            <p>Set the feedforward term of the controller.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>true in case of success, false otherwise.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a382d26e4b51239f9b678f812d92560c5"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename _Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void LieGroupControllers::<wbr />ProportionalDerivativeControllerBase&lt;_Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a382d26e4b51239f9b678f812d92560c5" class="m-doc-self">setGainsImpl</a>(</span><span class="m-doc-wrap">const Gains&amp; gains)</span></span>
+            </h3>
+            <p>Set the controller gains.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">gains</td>
+                  <td>contains the controller gains.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a4cf6d51095d5642661cfc405b9a75ceb"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename _Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void LieGroupControllers::<wbr />ProportionalDerivativeControllerBase&lt;_Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4cf6d51095d5642661cfc405b9a75ceb" class="m-doc-self">setGainsImpl</a>(</span><span class="m-doc-wrap">const ScalarGains&amp; gains)</span></span>
+            </h3>
+            <p>Set the controller gains.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">gains</td>
+                  <td>contains the controller gains.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a83652304ee12527c3a09cff13e4f4ac1"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename _Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">const Vector&amp; LieGroupControllers::<wbr />ProportionalDerivativeControllerBase&lt;_Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a83652304ee12527c3a09cff13e4f4ac1" class="m-doc-self">getControlImpl</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Get the control signal.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>a vector containing the control effort.</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-info"><h4>Note</h4><p>Please call this function only after <a href="class_lie_group_controllers_1_1_controller_base.html#ac1434dcc3f6550eecf8a187679574977" class="m-doc">computeControlLaw()</a>.</p><p>In the current implementation the control effort belongs to the tangent space at the identity, $\fT_\eps \mathcal{M}$\f. Please use the Adjoint transformation to convert the express the vector in a different tangent space.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a14ee341e07395eb362622193d16fb1e4"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename _Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">const State&amp; LieGroupControllers::<wbr />ProportionalDerivativeControllerBase&lt;_Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a14ee341e07395eb362622193d16fb1e4" class="m-doc-self">getStateImpl</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Get the state of the system.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>the state of the system.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a56780e39690bacfc26a12f44d8541b65"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename _Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">const State&amp; LieGroupControllers::<wbr />ProportionalDerivativeControllerBase&lt;_Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a56780e39690bacfc26a12f44d8541b65" class="m-doc-self">getDesiredStateImpl</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Get the desired state of the system.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>the state of the system.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a96f20cf879f2a65c5ce466c11129e9b8"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename _Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">const Vector&amp; LieGroupControllers::<wbr />ProportionalDerivativeControllerBase&lt;_Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a96f20cf879f2a65c5ce466c11129e9b8" class="m-doc-self">getFeedForwardImpl</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Get the feedforward term.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>the controller feedforward.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script src="searchdata-v2.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>lie-group-controllers. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

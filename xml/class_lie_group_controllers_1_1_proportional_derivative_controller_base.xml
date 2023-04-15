@@ -1,0 +1,450 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_lie_group_controllers_1_1_proportional_derivative_controller_base" kind="class" language="C++" prot="public">
+    <compoundname>LieGroupControllers::ProportionalDerivativeControllerBase</compoundname>
+    <basecompoundref refid="class_lie_group_controllers_1_1_controller_base" prot="public" virt="non-virtual">LieGroupControllers::ControllerBase&lt; _Derived &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename _Derived</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1ab6cc8a4fbc173521b7244ac04b8ecbc6" prot="public" static="no">
+        <type>typename <ref refid="class_lie_group_controllers_1_1_controller_base" kindref="compound">ControllerBase</ref>&lt; _Derived &gt;::State</type>
+        <definition>using LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::State =  typename ControllerBase&lt;_Derived&gt;::State</definition>
+        <argsstring></argsstring>
+        <name>State</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="20" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1aa2ee59895e61e501c785c73cf42fe239" prot="public" static="no">
+        <type>typename <ref refid="class_lie_group_controllers_1_1_controller_base" kindref="compound">ControllerBase</ref>&lt; _Derived &gt;::Vector</type>
+        <definition>using LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::Vector =  typename ControllerBase&lt;_Derived&gt;::Vector</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="21" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a059f8dafdf506ad87cdfc72c49ccae29" prot="public" static="no">
+        <type>typename <ref refid="class_lie_group_controllers_1_1_controller_base" kindref="compound">ControllerBase</ref>&lt; _Derived &gt;::ScalarGains</type>
+        <definition>using LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::ScalarGains =  typename ControllerBase&lt;_Derived&gt;::ScalarGains</definition>
+        <argsstring></argsstring>
+        <name>ScalarGains</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="22" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a2b0a7dd75dec0bf30b437eaa45e0ad3a" prot="public" static="no">
+        <type>typename <ref refid="class_lie_group_controllers_1_1_controller_base" kindref="compound">ControllerBase</ref>&lt; _Derived &gt;::Gains</type>
+        <definition>using LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::Gains =  typename ControllerBase&lt;_Derived&gt;::Gains</definition>
+        <argsstring></argsstring>
+        <name>Gains</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="23" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a7b1755431d2b250fb033b7d7a2d2fa5e" prot="public" static="no">
+        <type>typename <ref refid="class_lie_group_controllers_1_1_controller_base" kindref="compound">ControllerBase</ref>&lt; _Derived &gt;::<ref refid="class_lie_group_controllers_1_1_controller_base_1a22452e18924b183b89624adba17edacc" kindref="member">LieGroup</ref></type>
+        <definition>using LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::LieGroup =  typename ControllerBase&lt;_Derived&gt;::LieGroup</definition>
+        <argsstring></argsstring>
+        <name>LieGroup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="24" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a71dfd2f7a8612aa1ea0fb0047df01390" prot="private" static="no" mutable="no">
+        <type>State</type>
+        <definition>State LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::m_state</definition>
+        <argsstring></argsstring>
+        <name>m_state</name>
+        <initializer>{LieGroup::Identity(), Vector::Zero()}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="27" column="11" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a605764fe112ff2fa4b0eba714f01d3c3" prot="private" static="no" mutable="no">
+        <type>State</type>
+        <definition>State LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::m_desiredState</definition>
+        <argsstring></argsstring>
+        <name>m_desiredState</name>
+        <initializer>{LieGroup::Identity(), Vector::Zero()}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="28" column="11" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a794e67e625095e152caf428ecb5e6d93" prot="private" static="no" mutable="no">
+        <type>Vector</type>
+        <definition>Vector LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::m_feedForward</definition>
+        <argsstring></argsstring>
+        <name>m_feedForward</name>
+        <initializer>{Vector::Zero()}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="29" column="12" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a404fae0ab874b03a666f37e8e205b76d" prot="private" static="no" mutable="no">
+        <type>Vector</type>
+        <definition>Vector LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::m_controlOutput</definition>
+        <argsstring></argsstring>
+        <name>m_controlOutput</name>
+        <initializer>{Vector::Zero()}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="30" column="12" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a77cf1a7b575895e58828199af7996e76" prot="private" static="no" mutable="no">
+        <type>Gains</type>
+        <definition>Gains LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::m_gain</definition>
+        <argsstring></argsstring>
+        <name>m_gain</name>
+        <initializer>{std::tuple_element&lt;0, Gains&gt;::type::Zero(),
+                 std::tuple_element&lt;0, Gains&gt;::type::Zero()}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="31" column="11" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1aab95e72007324e1d13c79f10aa48bba9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::setStateImpl</definition>
+        <argsstring>(const State &amp;state)</argsstring>
+        <name>setStateImpl</name>
+        <param>
+          <type>const State &amp;</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Set the control state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of the system. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>for the <ref refid="class_lie_group_controllers_1_1_proportional_derivative_controller" kindref="compound">ProportionalDerivativeController</ref> the state is given by the element of the Lie group and one of it&apos;s tangent space at the identity. </para>
+</simplesect>
+<simplesect kind="return"><para>true in case of success, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="42" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="107" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a26079973353466ebfcf321f7c00ba908" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::setDesiredStateImpl</definition>
+        <argsstring>(const State &amp;state)</argsstring>
+        <name>setDesiredStateImpl</name>
+        <param>
+          <type>const State &amp;</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Set the desired state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of the system. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>for the <ref refid="class_lie_group_controllers_1_1_proportional_derivative_controller" kindref="compound">ProportionalDerivativeController</ref> the state is given by the element of the Lie group and one of it&apos;s tangent space at the identity. </para>
+</simplesect>
+<simplesect kind="return"><para>true in case of success, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="51" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="114" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a323e2ddce681563b211269e353be40de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::setFeedForwardImpl</definition>
+        <argsstring>(const Vector &amp;feedForward)</argsstring>
+        <name>setFeedForwardImpl</name>
+        <param>
+          <type>const Vector &amp;</type>
+          <declname>feedForward</declname>
+        </param>
+        <briefdescription>
+<para>Set the feedforward term of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feedforward</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a vector of the tangent space of the the group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true in case of success, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="58" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="121" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a382d26e4b51239f9b678f812d92560c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::setGainsImpl</definition>
+        <argsstring>(const Gains &amp;gains)</argsstring>
+        <name>setGainsImpl</name>
+        <param>
+          <type>const Gains &amp;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Set the controller gains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contains the controller gains. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="64" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="128" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a4cf6d51095d5642661cfc405b9a75ceb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::setGainsImpl</definition>
+        <argsstring>(const ScalarGains &amp;gains)</argsstring>
+        <name>setGainsImpl</name>
+        <param>
+          <type>const ScalarGains &amp;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Set the controller gains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contains the controller gains. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="70" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="134" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a1f90adc6297bf6e581f57e090db1b586" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::computeControlLawImpl</definition>
+        <argsstring>()</argsstring>
+        <name>computeControlLawImpl</name>
+        <briefdescription>
+<para>Evaluate the control law. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="75" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="141" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a83652304ee12527c3a09cff13e4f4ac1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const Vector &amp;</type>
+        <definition>const ProportionalDerivativeControllerBase&lt; _Derived &gt;::Vector &amp; LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::getControlImpl</definition>
+        <argsstring>() const</argsstring>
+        <name>getControlImpl</name>
+        <briefdescription>
+<para>Get the control signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a vector containing the control effort. </para>
+</simplesect>
+<simplesect kind="note"><para>Please call this function only after <ref refid="class_lie_group_controllers_1_1_controller_base_1ac1434dcc3f6550eecf8a187679574977" kindref="member">computeControlLaw()</ref>. </para>
+</simplesect>
+<simplesect kind="note"><para>In the current implementation the control effort belongs to the tangent space at the identity, $\fT_\eps \mathcal{M}$\f. Please use the Adjoint transformation to convert the express the vector in a different tangent space. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="85" column="18" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="164" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a14ee341e07395eb362622193d16fb1e4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const State &amp;</type>
+        <definition>const ProportionalDerivativeControllerBase&lt; _Derived &gt;::State &amp; LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::getStateImpl</definition>
+        <argsstring>() const</argsstring>
+        <name>getStateImpl</name>
+        <briefdescription>
+<para>Get the state of the system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the state of the system. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="91" column="17" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="171" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a56780e39690bacfc26a12f44d8541b65" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const State &amp;</type>
+        <definition>const ProportionalDerivativeControllerBase&lt; _Derived &gt;::State &amp; LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::getDesiredStateImpl</definition>
+        <argsstring>() const</argsstring>
+        <name>getDesiredStateImpl</name>
+        <briefdescription>
+<para>Get the desired state of the system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the state of the system. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="97" column="17" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="178" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a96f20cf879f2a65c5ce466c11129e9b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const Vector &amp;</type>
+        <definition>const ProportionalDerivativeControllerBase&lt; _Derived &gt;::Vector &amp; LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;::getFeedForwardImpl</definition>
+        <argsstring>() const</argsstring>
+        <name>getFeedForwardImpl</name>
+        <briefdescription>
+<para>Get the feedforward term. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the controller feedforward. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="103" column="18" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="185" bodyend="188"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>LieGroupControllers::ControllerBase&lt; _Derived &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_controller_base"/>
+      </node>
+      <node id="1">
+        <label>LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>LieGroupControllers::ControllerBase&lt; _Derived &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_controller_base"/>
+      </node>
+      <node id="1">
+        <label>LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" line="17" column="1" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/ControllerBase.h" bodystart="18" bodyend="104"/>
+    <listofallmembers>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1ac1434dcc3f6550eecf8a187679574977" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>computeControlLaw</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a1f90adc6297bf6e581f57e090db1b586" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>computeControlLawImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a2b0a7dd75dec0bf30b437eaa45e0ad3a" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>Gains</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1ade95d284a29ea519bdccb701999b8e2e" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>getControl</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a83652304ee12527c3a09cff13e4f4ac1" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>getControlImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a2d16c2b2db6c27d152f790a954fc1011" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>getDesiredState</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a56780e39690bacfc26a12f44d8541b65" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>getDesiredStateImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a359ae1e95054054c6489f926c22db830" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>getFeedForward</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a96f20cf879f2a65c5ce466c11129e9b8" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>getFeedForwardImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1af13ccdf6eaf0714171145fcd82287658" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>getState</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a14ee341e07395eb362622193d16fb1e4" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>getStateImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a7b1755431d2b250fb033b7d7a2d2fa5e" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>LieGroup</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a404fae0ab874b03a666f37e8e205b76d" prot="private" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>m_controlOutput</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a605764fe112ff2fa4b0eba714f01d3c3" prot="private" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>m_desiredState</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a794e67e625095e152caf428ecb5e6d93" prot="private" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>m_feedForward</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a77cf1a7b575895e58828199af7996e76" prot="private" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>m_gain</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a71dfd2f7a8612aa1ea0fb0047df01390" prot="private" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>m_state</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a059f8dafdf506ad87cdfc72c49ccae29" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>ScalarGains</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a6ec7549ba683ede7bcdc665b342dacde" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>setDesiredState</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a26079973353466ebfcf321f7c00ba908" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>setDesiredStateImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a1f1bb4f8be2965650770ad2db5bf8fa6" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>setFeedForward</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a323e2ddce681563b211269e353be40de" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>setFeedForwardImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a418e4a563eccddfdedad8a769b376213" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>setGains</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a382d26e4b51239f9b678f812d92560c5" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>setGainsImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1a4cf6d51095d5642661cfc405b9a75ceb" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>setGainsImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1af9f07c2b365c554599534db03d6a4df5" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>setState</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1aab95e72007324e1d13c79f10aa48bba9" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>setStateImpl</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1ab6cc8a4fbc173521b7244ac04b8ecbc6" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>State</name></member>
+      <member refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base_1aa2ee59895e61e501c785c73cf42fe239" prot="public" virt="non-virtual"><scope>LieGroupControllers::ProportionalDerivativeControllerBase</scope><name>Vector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

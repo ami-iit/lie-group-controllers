@@ -1,14 +1,154 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="1;=;url=https://dic-iit.github.io/lie-group-controllers/doxygen/doc/html/index.html"">
-        <script type="text/javascript">
-            window.location.href = "https://dic-iit.github.io/lie-group-controllers/doxygen/doc/html/index.html"
-        </script>
-        <title>Page Redirection</title>
-    </head>
-    <body>
-        If you are not redirected automatically, follow the <a href="https://dic-iit.github.io/lie-group-controllers/doxygen/doc/html/index.html">link to the documentation</a>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>lie-group-controllers</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">lie-group-controllers</a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="4">
+            <li><a href="https://github.com/ami-iit/lie-group-controllers">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          lie-group-controllers
+        </h1>
+<p><a name="md__home_runner_work_lie_group_controllers_lie_group_controllers_README"></a></p><h2>lie-group-controllers </h2><p><a href="https://isocpp.org"><img class="m-image" src="https://img.shields.io/badge/standard-C++17-blue.svg?style=flat&logo=c%2B%2B" alt="Image" /></a> <a href="./LICENSE"><img class="m-image" src="https://img.shields.io/badge/license-LGPL-19c2d8.svg" alt="Image" /></a> <a href="https://ami-iit.github.io/lie-group-controllers/doxygen/doc/html/index.html"><img class="m-image" src="https://github.com/ami-iit/lie-group-controllers/workflows/GitHub%20Pages/badge.svg" alt="Image" /></a> <a href="https://github.com/ami-iit/lie-group-controllers/actions?query=workflow%3A%22C%2B%2B+CI+Workflow%22"><img class="m-image" src="https://github.com/ami-iit/lie-group-controllers/workflows/C++%20CI%20Workflow/badge.svg" alt="Image" /></a></p><p><strong>Header-only C++ library containing controllers designed for Lie Groups</strong></p><section id="autotoc_md0"><h3><a href="#autotoc_md0">Some theory behind the library</a></h3><p>The library aims to contain some controllers designed in lie groups. The library depends only on <code>Eigen</code> and <a href="https://github.com/artivis/manif"><code>manif</code></a>.</p><p>All the controllers defined in <code>lie-group-controllers</code> have in common that they inherit from a templated base class (<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">CRTP</a>). It allows one to write generic code abstracting the controller details. This follows the structure of <code>manif</code> and <code>Eigen</code>.</p><p>The library implements two controllers:</p><ol><li>Proportional Controller (<code>P controller</code>)</li><li>Proportional Derivative Controller (<code>PD controller</code>)</li></ol><p>The controllers have the following form</p><table class="m-table"><thead><tr><th>Proportional Controller</th><th>Proportional Derivative Controller</th></tr></thead><tbody><tr><td><img class="m-image" src="https://user-images.githubusercontent.com/16744101/89174620-77c5b100-d586-11ea-88f7-318343c13b0f.png" alt="Image" /></td><td><img class="m-image" src="https://user-images.githubusercontent.com/16744101/89174628-7b593800-d586-11ea-8219-d3ea2cb70901.png" alt="Image" /></td></tr></tbody></table><p>where <code>X</code> and <code>Xᵈ</code> are elements of a Lie group. <code>∘</code> is the group operator. <code>ψ</code> represents an element in the Lie algebra of the Lie group whose coordinates are expressed in <code>ℝⁿ</code>.</p><p>The controllers support all the groups defined in <code>manif</code>. Namely:</p><ul><li>ℝ(n): Euclidean space with addition.</li><li>SO(2): rotations in the plane.</li><li>SE(2): rigid motion (rotation and translation) in the plane.</li><li>SO(3): rotations in 3D space.</li><li>SE(3): rigid motion (rotation and translation) in 3D space.</li></ul><p>Please you can find further information in</p><pre class="m-code"><span class="n">Modern</span> <span class="nl">Robotics</span><span class="p">:</span> <span class="n">Mechanics</span><span class="p">,</span> <span class="n">Planning</span><span class="p">,</span> <span class="n">and</span> <span class="n">Control</span><span class="p">,</span>
+<span class="n">Kevin</span> <span class="n">M</span><span class="p">.</span> <span class="n">Lynch</span> <span class="n">and</span> <span class="n">Frank</span> <span class="n">C</span><span class="p">.</span> <span class="n">Park</span><span class="p">,</span>
+<span class="n">Cambridge</span> <span class="n">University</span> <span class="n">Press</span><span class="p">,</span> <span class="mi">2017</span><span class="p">,</span>
+<span class="n">ISBN</span> <span class="mi">9781107156302</span></pre></section><section id="autotoc_md1"><h3><a href="#autotoc_md1">Basic Usage</a></h3><p>The library implements proportional and proportional derivative controllers on Lie groups. What follows are two simple snippets that you can follow to build and use such controllers. For sake of simplicity, only controllers in SO(3) are shown. The very same applies to the other Lie groups</p></section><section id="autotoc_md2"><h3><a href="#autotoc_md2">Proportional controller SO(3)</a></h3><pre class="m-code"><span class="c1">// set random initial state and zero feedforward</span>
+<span class="n">manif</span><span class="o">::</span><span class="n">SO3d</span> <span class="n">desiredState</span><span class="p">,</span> <span class="n">state</span><span class="p">;</span>
+<span class="n">desiredState</span><span class="p">.</span><span class="n">setRandom</span><span class="p">();</span>
+<span class="n">state</span><span class="p">.</span><span class="n">setRandom</span><span class="p">();</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">feedForward</span> <span class="o">=</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span><span class="o">::</span><span class="n">Zero</span><span class="p">();</span>
+
+<span class="c1">// create the controller.</span>
+<span class="n">ProportionalControllerSO3d</span> <span class="n">controller</span><span class="p">;</span>
+
+<span class="c1">// set the proportional gain</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="n">kp</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">setGains</span><span class="p">(</span><span class="n">kp</span><span class="p">);</span>
+
+<span class="c1">// set the desired state, the feed-forward, and the state</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">setDesiredState</span><span class="p">(</span><span class="n">desiredState</span><span class="p">);</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">setFeedForward</span><span class="p">(</span><span class="n">feedForward</span><span class="p">);</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">setState</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
+
+<span class="c1">// compute the control law</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">computeControlLaw</span><span class="p">();</span>
+<span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">controlOutput</span> <span class="o">=</span> <span class="n">controller</span><span class="p">.</span><span class="n">getControl</span><span class="p">();</span></pre></section><section id="autotoc_md3"><h3><a href="#autotoc_md3">Proportional Derivative controller SO(3)</a></h3><pre class="m-code"><span class="c1">// set random initial state and zero feedforward</span>
+<span class="n">manif</span><span class="o">::</span><span class="n">SO3d</span> <span class="n">desiredState</span><span class="p">,</span> <span class="n">state</span><span class="p">;</span>
+<span class="n">desiredState</span><span class="p">.</span><span class="n">setRandom</span><span class="p">();</span>
+<span class="n">state</span><span class="p">.</span><span class="n">setRandom</span><span class="p">();</span>
+<span class="n">manif</span><span class="o">::</span><span class="n">SO3d</span><span class="o">::</span><span class="n">Tangent</span> <span class="n">stateDerivative</span> <span class="o">=</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span><span class="o">::</span><span class="n">Zero</span><span class="p">();</span>
+<span class="n">manif</span><span class="o">::</span><span class="n">SO3d</span><span class="o">::</span><span class="n">Tangent</span> <span class="n">desiredStateDerivative</span> <span class="o">=</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span><span class="o">::</span><span class="n">Zero</span><span class="p">();</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">feedForward</span> <span class="o">=</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span><span class="o">::</span><span class="n">Zero</span><span class="p">();</span>
+
+<span class="c1">// create the controller.</span>
+<span class="n">ProportionalDerivativeControllerSO3d</span> <span class="n">controller</span><span class="p">;</span>
+
+<span class="c1">// set the proportional and the derivative gains</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="n">kp</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="n">kd</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">kp</span><span class="p">);</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">setGains</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span> <span class="n">kd</span><span class="p">);</span>
+
+<span class="c1">// set the desired state, its derivative, the feed-forward, and the state</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">setDesiredState</span><span class="p">(</span><span class="n">desiredState</span><span class="p">,</span> <span class="n">desiredStateDerivative</span><span class="p">);</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">setFeedForward</span><span class="p">(</span><span class="n">feedForward</span><span class="p">);</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">setState</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">stateDerivative</span><span class="p">);</span>
+
+<span class="c1">// compute the control law</span>
+<span class="n">controller</span><span class="p">.</span><span class="n">computeControlLaw</span><span class="p">();</span>
+<span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">controlOutput</span> <span class="o">=</span> <span class="n">controller</span><span class="p">.</span><span class="n">getControl</span><span class="p">();</span></pre></section><section id="autotoc_md4"><h3><a href="#autotoc_md4">Dependeces</a></h3><ul><li><a href="https://github.com/artivis/manif">manif</a></li><li><a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen3</a></li><li><a href="https://cmake.org/">cmake</a></li></ul></section><section id="autotoc_md5"><h3><a href="#autotoc_md5">Build the library</a></h3><pre class="m-code">git clone https://github.com/GiulioRomualdi/lie-group-controllers.git
+cd lie-group-controllers
+mkdir build &amp;&amp; cd build
+cmake ../
+cmake --build .
+[sudo] cmake --build . --target install</pre><p>If you want to enable tests set the <code>BUILD_TESTING</code> option to <code>ON</code>.</p></section><section id="autotoc_md6"><h3><a href="#autotoc_md6">Use lie-group-controllers in your project</a></h3><p><strong>lie-group-controllers</strong> provides native CMake support which allows the library to be easily used in CMake projects. Please add in your <code>CMakeLists.txt</code></p><pre class="m-code"><span class="nb">project</span><span class="p">(</span><span class="s">foo</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">LieGroupControllers</span> <span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span> <span class="s">src/foo.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span> <span class="s">LieGroupControllers::LieGroupControllers</span><span class="p">)</span></pre></section><section id="autotoc_md7"><h3><a href="#autotoc_md7">Bug reports and support</a></h3><p>All types of <a href="https://github.com/ami-iit/lie-group-controllers/issues/new">issues</a> are welcome.</p></section><section id="autotoc_md8"><h3><a href="#autotoc_md8">Note</a></h3><p>The original version of the library can be found <a href="https://github.com/GiulioRomualdi/lie-group-controllers">here</a>.</p></section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script src="searchdata-v2.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>lie-group-controllers. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
 </html>

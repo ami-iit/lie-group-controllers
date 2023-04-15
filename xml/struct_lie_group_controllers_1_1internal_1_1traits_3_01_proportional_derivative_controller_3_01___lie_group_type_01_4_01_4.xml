@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename _LieGroupType</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1a82e448aba922b06b2377a8c219c44a9e" prot="public" static="no">
+        <type>typename manif::LieGroupBase&lt; _LieGroupType &gt;::LieGroup</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;::LieGroup =  typename manif::LieGroupBase&lt;_LieGroupType&gt;::LieGroup</definition>
+        <argsstring></argsstring>
+        <name>LieGroup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" line="28" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1acc1c04717b2e661427a027746fdcfa2e" prot="public" static="no">
+        <type>typename manif::LieGroupBase&lt; _LieGroupType &gt;::Tangent</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;::Tangent =  typename manif::LieGroupBase&lt;_LieGroupType&gt;::Tangent</definition>
+        <argsstring></argsstring>
+        <name>Tangent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" line="29" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1a2fe8e56089883405ddbc0d21776d48e4" prot="public" static="no">
+        <type><ref refid="cpp/utility/tuple" kindref="compound" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml">std::tuple</ref>&lt; LieGroup, Tangent &gt;</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;::State =  std::tuple&lt;LieGroup, Tangent&gt;</definition>
+        <argsstring></argsstring>
+        <name>State</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" line="30" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1ab2bb133c95beaeb2a8c86da2513800da" prot="public" static="no">
+        <type>Tangent</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;::Vector =  Tangent</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" line="31" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1ae7c31483625aade17857ab7eb517a55e" prot="public" static="no">
+        <type><ref refid="cpp/utility/tuple" kindref="compound" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml">std::tuple</ref>&lt; typename LieGroup::Scalar, typename LieGroup::Scalar &gt;</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;::ScalarGains =  std::tuple&lt;typename LieGroup::Scalar, typename LieGroup::Scalar&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScalarGains</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" line="32" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1a3c5ccb7fc1bc0926b3e0b179e814110d" prot="public" static="no">
+        <type><ref refid="cpp/utility/tuple" kindref="compound" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml">std::tuple</ref>&lt; Eigen::Matrix&lt; typename LieGroup::Scalar, Tangent::DoF, 1 &gt;, Eigen::Matrix&lt; typename LieGroup::Scalar, Tangent::DoF, 1 &gt; &gt;</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;::Gains =  std::tuple&lt;Eigen::Matrix&lt;typename LieGroup::Scalar, Tangent::DoF, 1&gt;, Eigen::Matrix&lt;typename LieGroup::Scalar, Tangent::DoF, 1&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>Gains</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" line="33" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" line="26" column="12" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalDerivativeController/Controller.h" bodystart="27" bodyend="35"/>
+    <listofallmembers>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1a3c5ccb7fc1bc0926b3e0b179e814110d" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</scope><name>Gains</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1a82e448aba922b06b2377a8c219c44a9e" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</scope><name>LieGroup</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1ae7c31483625aade17857ab7eb517a55e" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</scope><name>ScalarGains</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1a2fe8e56089883405ddbc0d21776d48e4" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</scope><name>State</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1acc1c04717b2e661427a027746fdcfa2e" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</scope><name>Tangent</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_derivative_controller_3_01___lie_group_type_01_4_01_4_1ab2bb133c95beaeb2a8c86da2513800da" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</scope><name>Vector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

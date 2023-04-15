@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespace_lie_group_controllers" kind="namespace" language="C++">
+    <compoundname>LieGroupControllers</compoundname>
+    <innerclass refid="class_lie_group_controllers_1_1_controller_base" prot="public">LieGroupControllers::ControllerBase</innerclass>
+    <innerclass refid="class_lie_group_controllers_1_1_proportional_controller" prot="public">LieGroupControllers::ProportionalController</innerclass>
+    <innerclass refid="class_lie_group_controllers_1_1_proportional_controller_base" prot="public">LieGroupControllers::ProportionalControllerBase</innerclass>
+    <innerclass refid="class_lie_group_controllers_1_1_proportional_derivative_controller" prot="public">LieGroupControllers::ProportionalDerivativeController</innerclass>
+    <innerclass refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base" prot="public">LieGroupControllers::ProportionalDerivativeControllerBase</innerclass>
+    <innernamespace refid="namespace_lie_group_controllers_1_1internal">LieGroupControllers::internal</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_proportional_controller_8h_1a6c7bd5e590b82411240193217036aef2" prot="public" static="no">
+        <type><ref refid="class_lie_group_controllers_1_1_proportional_controller" kindref="compound">ProportionalController</ref>&lt; manif::SO3d &gt;</type>
+        <definition>using LieGroupControllers::ProportionalControllerSO3d = typedef ProportionalController&lt;manif::SO3d&gt;</definition>
+        <argsstring></argsstring>
+        <name>ProportionalControllerSO3d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalController.h" line="15" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalController.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_proportional_controller_8h_1adaad1f262d6c7c33069806dcb76bd541" prot="public" static="no">
+        <type><ref refid="class_lie_group_controllers_1_1_proportional_controller" kindref="compound">ProportionalController</ref>&lt; manif::SE3d &gt;</type>
+        <definition>using LieGroupControllers::ProportionalControllerSE3d = typedef ProportionalController&lt;manif::SE3d&gt;</definition>
+        <argsstring></argsstring>
+        <name>ProportionalControllerSE3d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalController.h" line="16" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalController.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_proportional_controller_8h_1abd4918c4fb8ff18f1fd9e50f318ab797" prot="public" static="no">
+        <type><ref refid="class_lie_group_controllers_1_1_proportional_controller" kindref="compound">ProportionalController</ref>&lt; manif::R3d &gt;</type>
+        <definition>using LieGroupControllers::ProportionalControllerR3d = typedef ProportionalController&lt;manif::R3d&gt;</definition>
+        <argsstring></argsstring>
+        <name>ProportionalControllerR3d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalController.h" line="17" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalController.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_proportional_derivative_controller_8h_1a896096fae46b3a3dabdb83e0bb4f40bf" prot="public" static="no">
+        <type><ref refid="class_lie_group_controllers_1_1_proportional_derivative_controller" kindref="compound">ProportionalDerivativeController</ref>&lt; manif::SO3d &gt;</type>
+        <definition>using LieGroupControllers::ProportionalDerivativeControllerSO3d = typedef ProportionalDerivativeController&lt;manif::SO3d&gt;</definition>
+        <argsstring></argsstring>
+        <name>ProportionalDerivativeControllerSO3d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalDerivativeController.h" line="15" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalDerivativeController.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_proportional_derivative_controller_8h_1a854f7ce9336aedfbdbbf96ecf0df4e0b" prot="public" static="no">
+        <type><ref refid="class_lie_group_controllers_1_1_proportional_derivative_controller" kindref="compound">ProportionalDerivativeController</ref>&lt; manif::SE3d &gt;</type>
+        <definition>using LieGroupControllers::ProportionalDerivativeControllerSE3d = typedef ProportionalDerivativeController&lt;manif::SE3d&gt;</definition>
+        <argsstring></argsstring>
+        <name>ProportionalDerivativeControllerSE3d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalDerivativeController.h" line="16" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalDerivativeController.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_proportional_derivative_controller_8h_1a50e563c9164295ac7bd57494e10f23b2" prot="public" static="no">
+        <type><ref refid="class_lie_group_controllers_1_1_proportional_derivative_controller" kindref="compound">ProportionalDerivativeController</ref>&lt; manif::R3d &gt;</type>
+        <definition>using LieGroupControllers::ProportionalDerivativeControllerR3d = typedef ProportionalDerivativeController&lt;manif::R3d&gt;</definition>
+        <argsstring></argsstring>
+        <name>ProportionalDerivativeControllerR3d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalDerivativeController.h" line="17" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/ProportionalDerivativeController.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="13" column="1"/>
+  </compounddef>
+</doxygen>

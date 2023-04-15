@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename _LieGroupType</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a51b170a6e05085c9cab139b7c03c90a0" prot="public" static="no">
+        <type>typename manif::LieGroupBase&lt; _LieGroupType &gt;::LieGroup</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;::LieGroup =  typename manif::LieGroupBase&lt;_LieGroupType&gt;::LieGroup</definition>
+        <argsstring></argsstring>
+        <name>LieGroup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" line="30" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a9b0735c42853014f1aefe24fafd7287e" prot="public" static="no">
+        <type>typename manif::LieGroupBase&lt; _LieGroupType &gt;::Tangent</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;::Tangent =  typename manif::LieGroupBase&lt;_LieGroupType&gt;::Tangent</definition>
+        <argsstring></argsstring>
+        <name>Tangent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" line="31" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a0839b359001a747f22b7c62718b50a15" prot="public" static="no">
+        <type><ref refid="cpp/utility/tuple" kindref="compound" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml">std::tuple</ref>&lt; LieGroup &gt;</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;::State =  std::tuple&lt;LieGroup&gt;</definition>
+        <argsstring></argsstring>
+        <name>State</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" line="32" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1ad34f5903219c0b194f75395454470037" prot="public" static="no">
+        <type>Tangent</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;::Vector =  Tangent</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" line="33" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a9a1125356be0f453c51c311dd2bc8cf1" prot="public" static="no">
+        <type><ref refid="cpp/utility/tuple" kindref="compound" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml">std::tuple</ref>&lt; typename LieGroup::Scalar &gt;</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;::ScalarGains =  std::tuple&lt;typename LieGroup::Scalar&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScalarGains</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" line="34" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a3d899552b222f313450297db6f58a88b" prot="public" static="no">
+        <type><ref refid="cpp/utility/tuple" kindref="compound" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml">std::tuple</ref>&lt; Eigen::Matrix&lt; typename LieGroup::Scalar, Tangent::DoF, 1 &gt; &gt;</type>
+        <definition>using LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;::Gains =  std::tuple&lt;Eigen::Matrix&lt;typename LieGroup::Scalar, Tangent::DoF, 1&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>Gains</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" line="35" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" line="28" column="12" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h" bodystart="29" bodyend="36"/>
+    <listofallmembers>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a3d899552b222f313450297db6f58a88b" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</scope><name>Gains</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a51b170a6e05085c9cab139b7c03c90a0" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</scope><name>LieGroup</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a9a1125356be0f453c51c311dd2bc8cf1" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</scope><name>ScalarGains</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a0839b359001a747f22b7c62718b50a15" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</scope><name>State</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1a9b0735c42853014f1aefe24fafd7287e" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</scope><name>Tangent</name></member>
+      <member refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4_1ad34f5903219c0b194f75395454470037" prot="public" virt="non-virtual"><scope>LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</scope><name>Vector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

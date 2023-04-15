@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_7cf2068de8351ca1dfc1191479a11cb9" kind="dir">
+    <compoundname>impl</compoundname>
+    <innerdir refid="dir_572b06816df385db17fccd0f0857f9ed">ProportionalController</innerdir>
+    <innerdir refid="dir_c98949ae2a9953617ad43c3ff61e9d25">ProportionalDerivativeController</innerdir>
+    <innerfile refid="_controller_base_8h">ControllerBase.h</innerfile>
+    <innerfile refid="traits_8h">traits.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,418 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_lie_group_controllers_1_1_controller_base" kind="class" language="C++" prot="public">
+    <compoundname>LieGroupControllers::ControllerBase</compoundname>
+    <derivedcompoundref refid="class_lie_group_controllers_1_1_proportional_controller_base" prot="public" virt="non-virtual">LieGroupControllers::ProportionalControllerBase&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base" prot="public" virt="non-virtual">LieGroupControllers::ProportionalDerivativeControllerBase&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_lie_group_controllers_1_1_proportional_controller_base" prot="public" virt="non-virtual">LieGroupControllers::ProportionalControllerBase&lt; _Derived &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base" prot="public" virt="non-virtual">LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;</derivedcompoundref>
+    <includes refid="_controller_base_8h" local="no">ControllerBase.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class _Derived</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_controller_base_1ae7d41aba7ad4cbea42b5a17fb62340cb" prot="public" static="no">
+        <type>typename <ref refid="struct_lie_group_controllers_1_1internal_1_1traits" kindref="compound">internal::traits</ref>&lt; _Derived &gt;::<ref refid="class_lie_group_controllers_1_1_controller_base_1ae7d41aba7ad4cbea42b5a17fb62340cb" kindref="member">State</ref></type>
+        <definition>using LieGroupControllers::ControllerBase&lt; _Derived &gt;::State =  typename internal::traits&lt;_Derived&gt;::State</definition>
+        <argsstring></argsstring>
+        <name>State</name>
+        <briefdescription>
+<para>State type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="24" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_controller_base_1ae1f99ffb0703d2b3bae782042d18c5c6" prot="public" static="no">
+        <type>typename <ref refid="struct_lie_group_controllers_1_1internal_1_1traits" kindref="compound">internal::traits</ref>&lt; _Derived &gt;::<ref refid="class_lie_group_controllers_1_1_controller_base_1ae1f99ffb0703d2b3bae782042d18c5c6" kindref="member">Vector</ref></type>
+        <definition>using LieGroupControllers::ControllerBase&lt; _Derived &gt;::Vector =  typename internal::traits&lt;_Derived&gt;::Vector</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+<para>Here we consider a Vector an element of the lie algebra of the Group. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="25" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_controller_base_1ad0cfb5cfd130491536079a8b6a0d9bce" prot="public" static="no">
+        <type>typename <ref refid="struct_lie_group_controllers_1_1internal_1_1traits" kindref="compound">internal::traits</ref>&lt; _Derived &gt;::ScalarGains</type>
+        <definition>using LieGroupControllers::ControllerBase&lt; _Derived &gt;::ScalarGains =  typename internal::traits&lt;_Derived&gt;::ScalarGains</definition>
+        <argsstring></argsstring>
+        <name>ScalarGains</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="28" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_controller_base_1a40adf7d795ee0c7819796f9b27a82bb2" prot="public" static="no">
+        <type>typename <ref refid="struct_lie_group_controllers_1_1internal_1_1traits" kindref="compound">internal::traits</ref>&lt; _Derived &gt;::<ref refid="class_lie_group_controllers_1_1_controller_base_1a40adf7d795ee0c7819796f9b27a82bb2" kindref="member">Gains</ref></type>
+        <definition>using LieGroupControllers::ControllerBase&lt; _Derived &gt;::Gains =  typename internal::traits&lt;_Derived&gt;::Gains</definition>
+        <argsstring></argsstring>
+        <name>Gains</name>
+        <briefdescription>
+<para>Gains used by the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="29" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_lie_group_controllers_1_1_controller_base_1a22452e18924b183b89624adba17edacc" prot="public" static="no">
+        <type>typename <ref refid="struct_lie_group_controllers_1_1internal_1_1traits" kindref="compound">internal::traits</ref>&lt; _Derived &gt;::<ref refid="class_lie_group_controllers_1_1_controller_base_1a22452e18924b183b89624adba17edacc" kindref="member">LieGroup</ref></type>
+        <definition>using LieGroupControllers::ControllerBase&lt; _Derived &gt;::LieGroup =  typename internal::traits&lt;_Derived&gt;::LieGroup</definition>
+        <argsstring></argsstring>
+        <name>LieGroup</name>
+        <briefdescription>
+<para>Lie Group. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="30" column="5" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1a4d9a834a94c778df840352447c8aafca" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>_Derived &amp;</type>
+        <definition>_Derived&amp; LieGroupControllers::ControllerBase&lt; _Derived &gt;::derived</definition>
+        <argsstring>()</argsstring>
+        <name>derived</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="33" column="14" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1a22ac95d432cff55caaf22a9d404b07e3" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const _Derived &amp;</type>
+        <definition>const _Derived&amp; LieGroupControllers::ControllerBase&lt; _Derived &gt;::derived</definition>
+        <argsstring>() const</argsstring>
+        <name>derived</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="37" column="20" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="37" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1af9f07c2b365c554599534db03d6a4df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool LieGroupControllers::ControllerBase&lt; _Derived &gt;::setState</definition>
+        <argsstring>(Ts &amp;&amp;... state)</argsstring>
+        <name>setState</name>
+        <param>
+          <type>Ts &amp;&amp;...</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Set the control state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of the system. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true in case of success, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="49" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="109" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1a6ec7549ba683ede7bcdc665b342dacde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool LieGroupControllers::ControllerBase&lt; _Derived &gt;::setDesiredState</definition>
+        <argsstring>(Ts &amp;&amp;... state)</argsstring>
+        <name>setDesiredState</name>
+        <param>
+          <type>Ts &amp;&amp;...</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Set the desired state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of the system. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true in case of success, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="57" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="116" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1a1f1bb4f8be2965650770ad2db5bf8fa6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LieGroupControllers::ControllerBase&lt; _Derived &gt;::setFeedForward</definition>
+        <argsstring>(const Vector &amp;feedForward)</argsstring>
+        <name>setFeedForward</name>
+        <param>
+          <type>const <ref refid="class_lie_group_controllers_1_1_controller_base_1ae1f99ffb0703d2b3bae782042d18c5c6" kindref="member">Vector</ref> &amp;</type>
+          <declname>feedForward</declname>
+        </param>
+        <briefdescription>
+<para>Set the feedforward term of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feedforward</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a vector of the tangent space of the the group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true in case of success, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="64" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1a418e4a563eccddfdedad8a769b376213" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void LieGroupControllers::ControllerBase&lt; _Derived &gt;::setGains</definition>
+        <argsstring>(Ts &amp;&amp;... gains)</argsstring>
+        <name>setGains</name>
+        <param>
+          <type>Ts &amp;&amp;...</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Set the controller gains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contains the controller gain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="71" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1ac1434dcc3f6550eecf8a187679574977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LieGroupControllers::ControllerBase&lt; _Derived &gt;::computeControlLaw</definition>
+        <argsstring>()</argsstring>
+        <name>computeControlLaw</name>
+        <briefdescription>
+<para>Evaluate the control law. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="76" column="10" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="134" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1ade95d284a29ea519bdccb701999b8e2e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="class_lie_group_controllers_1_1_controller_base_1ae1f99ffb0703d2b3bae782042d18c5c6" kindref="member">Vector</ref> &amp;</type>
+        <definition>const ControllerBase&lt; _Derived &gt;::Vector &amp; LieGroupControllers::ControllerBase&lt; _Derived &gt;::getControl</definition>
+        <argsstring>() const</argsstring>
+        <name>getControl</name>
+        <briefdescription>
+<para>Get the control signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a vector containing the control effort. </para>
+</simplesect>
+<simplesect kind="note"><para>Please call this function only after <ref refid="class_lie_group_controllers_1_1_controller_base_1ac1434dcc3f6550eecf8a187679574977" kindref="member">computeControlLaw()</ref>. </para>
+</simplesect>
+<simplesect kind="note"><para>In the current implementation the control effort belongs to the tangent space at the identity, $\fT_\eps \mathcal{M}$\f. Please use the Adjoint transformation to convert the express the vector in a different tangent space. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="86" column="18" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="141" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1af13ccdf6eaf0714171145fcd82287658" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="class_lie_group_controllers_1_1_controller_base_1ae7d41aba7ad4cbea42b5a17fb62340cb" kindref="member">State</ref> &amp;</type>
+        <definition>const ControllerBase&lt; _Derived &gt;::State &amp; LieGroupControllers::ControllerBase&lt; _Derived &gt;::getState</definition>
+        <argsstring>() const</argsstring>
+        <name>getState</name>
+        <briefdescription>
+<para>Get the state of the system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the state of the system. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="92" column="17" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="147" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1a2d16c2b2db6c27d152f790a954fc1011" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="class_lie_group_controllers_1_1_controller_base_1ae7d41aba7ad4cbea42b5a17fb62340cb" kindref="member">State</ref> &amp;</type>
+        <definition>const ControllerBase&lt; _Derived &gt;::State &amp; LieGroupControllers::ControllerBase&lt; _Derived &gt;::getDesiredState</definition>
+        <argsstring>() const</argsstring>
+        <name>getDesiredState</name>
+        <briefdescription>
+<para>Get the desired state of the system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the state of the system. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="98" column="17" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lie_group_controllers_1_1_controller_base_1a359ae1e95054054c6489f926c22db830" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="class_lie_group_controllers_1_1_controller_base_1ae1f99ffb0703d2b3bae782042d18c5c6" kindref="member">Vector</ref> &amp;</type>
+        <definition>const ControllerBase&lt; _Derived &gt;::Vector &amp; LieGroupControllers::ControllerBase&lt; _Derived &gt;::getFeedForward</definition>
+        <argsstring>() const</argsstring>
+        <name>getFeedForward</name>
+        <briefdescription>
+<para>Get the feedforward term. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the controller feedforward. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="104" column="18" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="159" bodyend="162"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_lie_group_controllers_1_1_controller_base" kindref="compound">ControllerBase</ref> describes a base controller. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>_Derived</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the Derived class. Necessary to implement the Curiously recurring template pattern. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>LieGroupControllers::ProportionalControllerBase&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_controller_base"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>LieGroupControllers::ProportionalDerivativeControllerBase&lt; ProportionalDerivativeController&lt; _LieGroupType &gt; &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>LieGroupControllers::ProportionalControllerBase&lt; _Derived &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_controller_base"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>LieGroupControllers::ProportionalController&lt; _LieGroupType &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>LieGroupControllers::ProportionalDerivativeController&lt; _LieGroupType &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_derivative_controller"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>LieGroupControllers::ControllerBase&lt; _Derived &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_controller_base"/>
+      </node>
+      <node id="7">
+        <label>LieGroupControllers::ProportionalDerivativeControllerBase&lt; _Derived &gt;</label>
+        <link refid="class_lie_group_controllers_1_1_proportional_derivative_controller_base"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" line="21" column="12" bodyfile="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ControllerBase.h" bodystart="22" bodyend="105"/>
+    <listofallmembers>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1ac1434dcc3f6550eecf8a187679574977" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>computeControlLaw</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a4d9a834a94c778df840352447c8aafca" prot="private" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>derived</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a22ac95d432cff55caaf22a9d404b07e3" prot="private" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>derived</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a40adf7d795ee0c7819796f9b27a82bb2" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>Gains</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1ade95d284a29ea519bdccb701999b8e2e" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>getControl</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a2d16c2b2db6c27d152f790a954fc1011" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>getDesiredState</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a359ae1e95054054c6489f926c22db830" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>getFeedForward</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1af13ccdf6eaf0714171145fcd82287658" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>getState</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a22452e18924b183b89624adba17edacc" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>LieGroup</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1ad0cfb5cfd130491536079a8b6a0d9bce" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>ScalarGains</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a6ec7549ba683ede7bcdc665b342dacde" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>setDesiredState</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a1f1bb4f8be2965650770ad2db5bf8fa6" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>setFeedForward</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1a418e4a563eccddfdedad8a769b376213" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>setGains</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1af9f07c2b365c554599534db03d6a4df5" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>setState</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1ae7d41aba7ad4cbea42b5a17fb62340cb" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>State</name></member>
+      <member refid="class_lie_group_controllers_1_1_controller_base_1ae1f99ffb0703d2b3bae782042d18c5c6" prot="public" virt="non-virtual"><scope>LieGroupControllers::ControllerBase</scope><name>Vector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

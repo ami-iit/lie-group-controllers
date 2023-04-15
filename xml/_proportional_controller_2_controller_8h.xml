@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_proportional_controller_2_controller_8h" kind="file" language="C++">
+    <compoundname>ProportionalController/Controller.h</compoundname>
+    <includes local="no">tuple</includes>
+    <includes local="no">type_traits</includes>
+    <includes local="no">Eigen/Dense</includes>
+    <includes refid="_proportional_controller_2_controller_base_8h" local="no">LieGroupControllers/impl/ProportionalController/ControllerBase.h</includes>
+    <includes local="no">manif/manif.h</includes>
+    <includedby refid="_proportional_controller_8h" local="no">ProportionalController.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>type_traits</label>
+        <link refid="cpp/header/type_traits" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml"/>
+      </node>
+      <node id="8">
+        <label>manif/manif.h</label>
+      </node>
+      <node id="7">
+        <label>LieGroupControllers/impl/traits.h</label>
+        <link refid="traits_8h"/>
+      </node>
+      <node id="4">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="1">
+        <label>Controller.h</label>
+        <link refid="_proportional_controller_2_controller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>LieGroupControllers/impl/ControllerBase.h</label>
+        <link refid="_controller_base_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tuple</label>
+        <link refid="cpp/header/tuple" external="/home/runner/work/lie-group-controllers/lie-group-controllers/docs/tags/cppreference-doxygen-web.tag.xml"/>
+      </node>
+      <node id="5">
+        <label>LieGroupControllers/impl/ProportionalController/ControllerBase.h</label>
+        <link refid="_proportional_controller_2_controller_base_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>Controller.h</label>
+        <link refid="_proportional_controller_2_controller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProportionalController.h</label>
+        <link refid="_proportional_controller_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_lie_group_controllers_1_1internal_1_1traits_3_01_proportional_controller_3_01___lie_group_type_01_4_01_4" prot="public">LieGroupControllers::internal::traits&lt; ProportionalController&lt; _LieGroupType &gt; &gt;</innerclass>
+    <innerclass refid="class_lie_group_controllers_1_1_proportional_controller" prot="public">LieGroupControllers::ProportionalController</innerclass>
+    <innernamespace refid="namespace_lie_group_controllers">LieGroupControllers</innernamespace>
+    <innernamespace refid="namespace_lie_group_controllers_1_1internal">LieGroupControllers::internal</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="authors"><para>Giulio Romualdi </para>
+</simplesect>
+<simplesect kind="copyright"><para>This software may be modified and distributed under the terms of the GNU Lesser General Public License v2.1 or any later version. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/home/runner/work/lie-group-controllers/lie-group-controllers/include/LieGroupControllers/impl/ProportionalController/Controller.h"/>
+  </compounddef>
+</doxygen>
