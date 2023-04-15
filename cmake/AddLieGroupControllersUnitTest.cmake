@@ -1,13 +1,21 @@
 # This software may be modified and distributed under the terms of the
 # GNU Lesser General Public License v2.1 or any later version.
 
-liegroupcontrollers_dependent_option(LIEGROUPCONTROLLERS_COMPILE_tests
-  "Compile tests?" ON
-  "LIEGROUPCONTROLLERS_HAS_Catch2;BUILD_TESTING" OFF)
+include(FetchContent)
+FetchContent_Declare(Catch2
+                    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+                    GIT_TAG        v2.13.8)
+
+FetchContent_GetProperties(Catch2)
+if(NOT Catch2_POPULATED)
+  message(STATUS "Fetching Catch2...")
+  FetchContent_MakeAvailable(Catch2)
+endif()
+
 
 liegroupcontrollers_dependent_option(LIEGROUPCONTROLLERS_RUN_Valgrind_tests
   "Run Valgrind tests?" OFF
-  "LIEGROUPCONTROLLERS_COMPILE_tests;VALGRIND_FOUND" OFF)
+  "BUILD_TESTING;VALGRIND_FOUND" OFF)
 
 if (LIEGROUPCONTROLLERS_RUN_Valgrind_tests)
     set(CTEST_MEMORYCHECK_COMMAND ${VALGRIND_PROGRAM})
@@ -18,16 +26,16 @@ if (LIEGROUPCONTROLLERS_RUN_Valgrind_tests)
     separate_arguments(MEMCHECK_COMMAND_COMPLETE)
 endif()
 
-if (LIEGROUPCONTROLLERS_COMPILE_tests)
+if (BUILD_TESTING)
     configure_file(cmake/Catch2Main.cpp.in ${CMAKE_BINARY_DIR}/Testing/Catch2Main.cpp)
     add_library(CatchTestMain ${CMAKE_BINARY_DIR}/Testing/Catch2Main.cpp)
-    target_link_libraries(CatchTestMain PUBLIC Catch2::Catch2)
+    target_link_libraries(CatchTestMain PRIVATE Catch2::Catch2)
 endif()
 
 
 function(add_liegroupcontrollers_test)
 
-    if(LIEGROUPCONTROLLERS_COMPILE_tests)
+    if(BUILD_TESTING)
 
       set(options)
       set(oneValueArgs NAME)
@@ -48,7 +56,7 @@ function(add_liegroupcontrollers_test)
       add_executable(${targetname}
           "${unit_test_files}")
 
-      target_link_libraries(${targetname} PRIVATE CatchTestMain ${${prefix}_LINKS})
+      target_link_libraries(${targetname} PRIVATE CatchTestMain ${${prefix}_LINKS} Catch2::Catch2)
       target_compile_definitions(${targetname} PRIVATE CATCH_CONFIG_FAST_COMPILE CATCH_CONFIG_DISABLE_MATCHERS)
       target_compile_features(${targetname} PUBLIC cxx_std_14)
 

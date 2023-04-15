@@ -16,16 +16,20 @@ namespace LieGroupControllers
 template <typename _Derived>
 class ProportionalDerivativeControllerBase : public ControllerBase<_Derived>
 {
+public:
     using State = typename ControllerBase<_Derived>::State;
     using Vector = typename ControllerBase<_Derived>::Vector;
+    using ScalarGains = typename ControllerBase<_Derived>::ScalarGains;
     using Gains = typename ControllerBase<_Derived>::Gains;
     using LieGroup = typename ControllerBase<_Derived>::LieGroup;
 
+private:
     State m_state{LieGroup::Identity(), Vector::Zero()};
     State m_desiredState{LieGroup::Identity(), Vector::Zero()};
     Vector m_feedForward{Vector::Zero()};
     Vector m_controlOutput{Vector::Zero()};
-    Gains m_gain{0, 0};
+    Gains m_gain{std::tuple_element<0, Gains>::type::Zero(),
+                 std::tuple_element<0, Gains>::type::Zero()};
 
 public:
     /**
@@ -35,7 +39,7 @@ public:
      * group and one of it's tangent space at the identity.
      * @return true in case of success, false otherwise.
      */
-    bool setState(const State& state);
+    bool setStateImpl(const State& state);
 
     /**
      * Set the desired state.
@@ -44,26 +48,31 @@ public:
      * group and one of it's tangent space at the identity.
      * @return true in case of success, false otherwise.
      */
-    bool setDesiredState(const State& state);
+    bool setDesiredStateImpl(const State& state);
 
     /**
      * Set the feedforward term of the controller.
      * @param feedforward is a vector of the tangent space of the the group.
      * @return true in case of success, false otherwise.
      */
-    bool setFeedForward(const Vector& feedForward);
+    bool setFeedForwardImpl(const Vector& feedForward);
 
     /**
      * Set the controller gains.
      * @param gains contains the controller gains.
-     * @note for the ProportionalController the gain is simply a double.
      */
-    void setGains(const Gains& gains);
+    void setGainsImpl(const Gains& gains);
+
+    /**
+     * Set the controller gains.
+     * @param gains contains the controller gains.
+     */
+    void setGainsImpl(const ScalarGains& gains);
 
     /**
      * Evaluate the control law.
      */
-    void computeControlLaw();
+    void computeControlLawImpl();
 
     /**
      * Get the control signal.
@@ -73,59 +82,66 @@ public:
      * identity, $\fT_\eps \mathcal{M}$\f. Please use the Adjoint transformation to convert the
      * express the vector in a different tangent space.
      */
-    const Vector& getControl() const;
+    const Vector& getControlImpl() const;
 
     /**
      * Get the state of the system.
      * @return the state of the system.
      */
-    const State& getState() const;
+    const State& getStateImpl() const;
 
     /**
      * Get the desired state of the system.
      * @return the state of the system.
      */
-    const State& getDesiredState() const;
+    const State& getDesiredStateImpl() const;
 
     /**
      * Get the feedforward term.
      * @return the controller feedforward.
      */
-    const Vector& getFeedForward() const;
+    const Vector& getFeedForwardImpl() const;
 };
 
 template <typename _Derived>
-bool ProportionalDerivativeControllerBase<_Derived>::setState(const State& state)
+bool ProportionalDerivativeControllerBase<_Derived>::setStateImpl(const State& state)
 {
     m_state = state;
     return true;
 }
 
 template <typename _Derived>
-bool ProportionalDerivativeControllerBase<_Derived>::setDesiredState(const State& state)
+bool ProportionalDerivativeControllerBase<_Derived>::setDesiredStateImpl(const State& state)
 {
     m_desiredState = state;
     return true;
 }
 
 template <typename _Derived>
-bool ProportionalDerivativeControllerBase<_Derived>::setFeedForward(const Vector& feedForward)
+bool ProportionalDerivativeControllerBase<_Derived>::setFeedForwardImpl(const Vector& feedForward)
 {
     m_feedForward = feedForward;
     return true;
 }
 
 template <typename _Derived>
-void ProportionalDerivativeControllerBase<_Derived>::setGains(const Gains& gain)
+void ProportionalDerivativeControllerBase<_Derived>::setGainsImpl(const Gains& gain)
 {
     m_gain = gain;
 }
 
 template <typename _Derived>
-void ProportionalDerivativeControllerBase<_Derived>::computeControlLaw()
+void ProportionalDerivativeControllerBase<_Derived>::setGainsImpl(const ScalarGains& gain)
 {
-    const double& kp = std::get<0>(m_gain);
-    const double& kd = std::get<1>(m_gain);
+    std::get<0>(m_gain).setConstant(std::get<0>(gain));
+    std::get<1>(m_gain).setConstant(std::get<1>(gain));
+}
+
+template <typename _Derived>
+void ProportionalDerivativeControllerBase<_Derived>::computeControlLawImpl()
+{
+    const typename std::tuple_element<0, Gains>::type& kp = std::get<0>(m_gain);
+    const typename std::tuple_element<1, Gains>::type& kd = std::get<1>(m_gain);
 
     const auto& state = std::get<0>(m_state);
     const auto& stateDerivative = std::get<1>(m_state);
@@ -138,33 +154,35 @@ void ProportionalDerivativeControllerBase<_Derived>::computeControlLaw()
     Vector errorStateDerivative = desiredStateDerivative - stateDerivative;
 
     // compute the control law
-    m_controlOutput = m_feedForward + errorStateDerivative * kd + errorState * kp;
+    m_controlOutput = m_feedForward;
+    m_controlOutput += kd.asDiagonal() * errorStateDerivative.coeffs();
+    m_controlOutput += kp.asDiagonal() * errorState.coeffs();
 }
 
 template <typename _Derived>
 const typename ProportionalDerivativeControllerBase<_Derived>::Vector&
-ProportionalDerivativeControllerBase<_Derived>::getControl() const
+ProportionalDerivativeControllerBase<_Derived>::getControlImpl() const
 {
     return m_controlOutput;
 }
 
 template <class _Derived>
 const typename ProportionalDerivativeControllerBase<_Derived>::State&
-ProportionalDerivativeControllerBase<_Derived>::getState() const
+ProportionalDerivativeControllerBase<_Derived>::getStateImpl() const
 {
     return m_state;
 }
 
 template <class _Derived>
 const typename ProportionalDerivativeControllerBase<_Derived>::State&
-ProportionalDerivativeControllerBase<_Derived>::getDesiredState() const
+ProportionalDerivativeControllerBase<_Derived>::getDesiredStateImpl() const
 {
     return m_desiredState;
 }
 
 template <class _Derived>
 const typename ProportionalDerivativeControllerBase<_Derived>::Vector&
-ProportionalDerivativeControllerBase<_Derived>::getFeedForward() const
+ProportionalDerivativeControllerBase<_Derived>::getFeedForwardImpl() const
 {
     return m_feedForward;
 }

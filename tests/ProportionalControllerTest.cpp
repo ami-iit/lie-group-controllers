@@ -13,7 +13,7 @@
 #include <LieGroupControllers/ProportionalController.h>
 using namespace LieGroupControllers;
 
-TEST_CASE("Proportional Controller [SO(3)]")
+TEST_CASE("Proportional Controller [SO(3)] with scalar kp")
 {
     manif::SO3d desiredState, state;
     desiredState.setRandom();
@@ -24,6 +24,47 @@ TEST_CASE("Proportional Controller [SO(3)]")
     // instantiate the controller
     ProportionalControllerSO3d controller;
     constexpr double kp = 10;
+    controller.setGains(kp);
+    controller.setDesiredState(desiredState);
+    controller.setFeedForward(feedForward);
+
+    // Test the controller
+    constexpr double dT = 0.01;
+    constexpr std::size_t numberOfIteration = 1e3;
+    for (std::size_t i = 0; i < numberOfIteration; i++)
+    {
+        controller.setState(state);
+        controller.computeControlLaw();
+        auto controlOutput = controller.getControl();
+
+        // Propagate the dynamics of the system.
+        // First of all we get the control output. In this particular case is the angular velocity
+        // expressed in the inertial frame.
+        // Then the Manifold left plus operator is used
+        // state = controlOutputDT  + state should be read as
+        // state_k+1 = exp(omega * dT) * state_k
+        manif::SO3d::Tangent controlOutputDT = controlOutput.coeffs() * dT;
+
+        state = controlOutputDT + state;
+    }
+
+    // check the error
+    auto error = state.compose(desiredState.inverse()).log();
+    REQUIRE(error.coeffs().norm() < 1e-4);
+}
+
+TEST_CASE("Proportional Controller [SO(3)] with vector kp")
+{
+    manif::SO3d desiredState, state;
+    desiredState.setRandom();
+    state.setRandom();
+
+    auto feedForward = Eigen::Vector3d::Zero();
+
+    // instantiate the controller
+    ProportionalControllerSO3d controller;
+    Eigen::Vector3d kp;
+    kp.fill(10);
     controller.setGains(kp);
     controller.setDesiredState(desiredState);
     controller.setFeedForward(feedForward);
