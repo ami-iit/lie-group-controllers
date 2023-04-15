@@ -7,14 +7,12 @@
 <a href="./LICENSE"><img src="https://img.shields.io/badge/license-LGPL-19c2d8.svg" alt="Size" /></a>
 <a href="https://ami-iit.github.io/lie-group-controllers/doxygen/doc/html/index.html"><img src="https://github.com/ami-iit/lie-group-controllers/workflows/GitHub%20Pages/badge.svg" alt="Size" /></a>
 <a href="https://github.com/ami-iit/lie-group-controllers/actions?query=workflow%3A%22C%2B%2B+CI+Workflow%22"><img src="https://github.com/ami-iit/lie-group-controllers/workflows/C++%20CI%20Workflow/badge.svg" alt="Size" /></a>
-
 </p>
-
-Header-only C++ libraries containing controllers designed for Lie Groups.
+<p align="center"> <b>Header-only C++ library containing controllers designed for Lie Groups</b></p>
 
 ## Some theory behind the library
 
-The aim of the library is to contain some controllers designed in lie groups. The library depends only on `Eigen` and [`manif`](https://github.com/artivis/manif).
+The library aims to contain some controllers designed in lie groups. The library depends only on `Eigen` and [`manif`](https://github.com/artivis/manif).
 
 All the controllers defined in `lie-group-controllers` have in common that they inherit from a templated base class ([CRTP](https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern)). It allows one to write generic code abstracting the controller details. This follows the structure of `manif` and `Eigen`.
 
@@ -30,7 +28,7 @@ The controllers have the following form
 
 where `X` and `Xᵈ` are elements of a Lie group. `∘` is the group operator. `ψ` represents an element in the Lie algebra of the Lie group whose coordinates are expressed in `ℝⁿ`.
 
-At the moment, the controllers support all the group defined in `manif`. Namely:
+The controllers support all the groups defined in `manif`. Namely:
 - ℝ(n): Euclidean space with addition.
 - SO(2): rotations in the plane.
 - SE(2): rigid motion (rotation and translation) in the plane.
@@ -45,22 +43,77 @@ Cambridge University Press, 2017,
 ISBN 9781107156302
 ```
 
+## Basic Usage
+The library implements proportional and proportional derivative controllers on Lie groups. What follows are two simple snippets that you can follow to build and use such controllers. For sake of simplicity, only controllers in SO(3) are shown. The very same applies to the other Lie groups
+
+## Proportional controller SO(3)
+```cpp
+// set random initial state and zero feedforward
+manif::SO3d desiredState, state;
+desiredState.setRandom();
+state.setRandom();
+Eigen::Vector3d feedForward = Eigen::Vector3d::Zero();
+
+// create the controller.
+ProportionalControllerSO3d controller;
+
+// set the proportional gain
+const double kp = 10;
+controller.setGains(kp);
+
+// set the desired state, the feed-forward, and the state
+controller.setDesiredState(desiredState);
+controller.setFeedForward(feedForward);
+controller.setState(state);
+
+// compute the control law
+controller.computeControlLaw();
+const auto& controlOutput = controller.getControl();
+```
+
+## Proportional Derivative controller SO(3)
+```cpp
+// set random initial state and zero feedforward
+manif::SO3d desiredState, state;
+desiredState.setRandom();
+state.setRandom();
+manif::SO3d::Tangent stateDerivative = Eigen::Vector3d::Zero();
+manif::SO3d::Tangent desiredStateDerivative = Eigen::Vector3d::Zero();
+Eigen::Vector3d feedForward = Eigen::Vector3d::Zero();
+
+// create the controller.
+ProportionalDerivativeControllerSO3d controller;
+
+// set the proportional and the derivative gains
+const double kp = 10;
+const double kd = 2 * std::sqrt(kp);
+controller.setGains(kp, kd);
+
+// set the desired state, its derivative, the feed-forward, and the state
+controller.setDesiredState(desiredState, desiredStateDerivative);
+controller.setFeedForward(feedForward);
+controller.setState(state, stateDerivative);
+
+// compute the control law
+controller.computeControlLaw();
+const auto& controlOutput = controller.getControl();
+```
+
 ## Dependeces
 
 - [manif](https://github.com/artivis/manif)
 - [Eigen3](http://eigen.tuxfamily.org/index.php?title=Main_Page)
 - [cmake](https://cmake.org/)
-- [Catch2](https://github.com/catchorg/Catch2) (only for testing)
 
 ## Build the library
 
-```sh
+```console
 git clone https://github.com/GiulioRomualdi/lie-group-controllers.git
 cd lie-group-controllers
 mkdir build && cd build
 cmake ../
 cmake --build .
-[sudo] make install
+[sudo] cmake --build . --target install
 ```
 If you want to enable tests set the `BUILD_TESTING` option to `ON`.
 
