@@ -61,6 +61,53 @@ TEST_CASE("Proportional Derivative Controller [SO(3)] with scalar kp and kd")
     REQUIRE(error.coeffs().norm() < 1e-4);
 }
 
+TEST_CASE("Proportional Derivative Controller [SO(3)] with scalar kp and kd - Right trivialization")
+{
+    manif::SO3d desiredState, state;
+    desiredState.setRandom();
+    state.setRandom();
+    manif::SO3d::Tangent stateDerivative = Eigen::Vector3d::Zero();
+
+    const manif::SO3d::Tangent desiredStateDerivative = Eigen::Vector3d::Zero();
+    const auto feedForward = Eigen::Vector3d::Zero();
+
+    // Initialize the controller
+    ProportionalDerivativeControllerTplSO3d<Trivialization::Right> controller;
+    constexpr double kp = 10;
+    const double kd = 2 * std::sqrt(kp);
+    controller.setGains(kp, kd);
+    controller.setDesiredState(desiredState, desiredStateDerivative);
+    controller.setFeedForward(feedForward);
+
+    // Test the controller
+    constexpr double dT = 0.01;
+    constexpr std::size_t numberOfIteration = 1e3;
+    for (std::size_t i = 0; i < numberOfIteration; i++)
+    {
+        controller.setState(state, stateDerivative);
+        controller.computeControlLaw();
+        auto controlOutput = controller.getControl();
+
+        // Propagate the dynamics of the system.
+        // First of all we get the control output. In this particular case is the angular
+        // acceleration expressed in the inertial frame. Then the Manifold left plus operator is
+        // used state = stateDerivativeDT + state should be read as
+        // state_k+1 = exp(omega * dT) * state_k
+        manif::SO3d::Tangent stateDerivativeDT = stateDerivative.coeffs() * dT;
+        state = state + stateDerivativeDT;
+
+        // here the following operator has been used
+        // https://github.com/artivis/manif/blob/6d07bc65cc5b25c49f1231021be5e61132e5f777/include/manif/impl/tangent_base.h#L316-L318
+        // and
+        // https://github.com/artivis/manif/blob/6d07bc65cc5b25c49f1231021be5e61132e5f777/include/manif/impl/tangent_base.h#L300-L310
+        stateDerivative += controlOutput * dT;
+    }
+
+    // check the error
+    auto error = state.compose(desiredState.inverse()).log();
+    REQUIRE(error.coeffs().norm() < 1e-4);
+}
+
 TEST_CASE("Proportional Derivative Controller [SO(3)] with vector kp and kd")
 {
     manif::SO3d desiredState, state;

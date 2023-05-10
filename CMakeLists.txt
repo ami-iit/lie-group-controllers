@@ -99,6 +99,7 @@ target_include_directories(${LIBRARY_TARGET_NAME} INTERFACE
   "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 
 target_link_libraries(${LIBRARY_TARGET_NAME} INTERFACE Eigen3::Eigen MANIF::manif)
+target_compile_features(${LIBRARY_TARGET_NAME} INTERFACE cxx_std_17)
 
 install(TARGETS ${LIBRARY_TARGET_NAME} EXPORT  ${PROJECT_NAME})
 
