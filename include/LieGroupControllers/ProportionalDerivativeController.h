@@ -12,9 +12,26 @@
 
 namespace LieGroupControllers
 {
-    using ProportionalDerivativeControllerSO3d = ProportionalDerivativeController<manif::SO3d>;
-    using ProportionalDerivativeControllerSE3d = ProportionalDerivativeController<manif::SE3d>;
-    using ProportionalDerivativeControllerR3d = ProportionalDerivativeController<manif::R3d>;
-}
+
+template <Trivialization _trivialization>
+using ProportionalDerivativeControllerTplSO3d
+    = ProportionalDerivativeController<manif::SO3d, _trivialization>;
+
+template <Trivialization _trivialization>
+using ProportionalDerivativeControllerTplSE3d
+    = ProportionalDerivativeController<manif::SE3d, _trivialization>;
+
+template <Trivialization _trivialization>
+using ProportionalDerivativeControllerTplR3d
+    = ProportionalDerivativeController<manif::R3d, _trivialization>;
+
+using ProportionalDerivativeControllerSO3d
+    = ProportionalDerivativeControllerTplSO3d<Trivialization::Left>;
+using ProportionalDerivativeControllerSE3d
+    = ProportionalDerivativeControllerTplSE3d<Trivialization::Left>;
+using ProportionalDerivativeControllerR3d
+    = ProportionalDerivativeControllerTplR3d<Trivialization::Left>;
+
+} // namespace LieGroupControllers
 
 #endif

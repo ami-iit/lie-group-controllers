@@ -20,6 +20,7 @@ class ProportionalControllerBase : public ControllerBase<_Derived>
     using Vector = typename ControllerBase<_Derived>::Vector;
     using ScalarGains = typename ControllerBase<_Derived>::ScalarGains;
     using Gains = typename ControllerBase<_Derived>::Gains;
+    static constexpr Trivialization m_trivialization = ControllerBase<_Derived>::trivialization;
 
     State m_state{std::tuple_element<0, State>::type::Identity()};
     State m_desiredState{std::tuple_element<0, State>::type::Identity()};
@@ -112,13 +113,15 @@ bool ProportionalControllerBase<_Derived>::setDesiredStateImpl(const State& stat
 }
 
 template <typename _Derived>
-bool ProportionalControllerBase<_Derived>::setFeedForwardImpl(const Vector& feedForward)
+bool ProportionalControllerBase<_Derived>::setFeedForwardImpl(
+    const Vector& feedForward)
 {
     m_feedForward = feedForward;
     return true;
 }
 
-template <typename _Derived> void ProportionalControllerBase<_Derived>::setGainsImpl(const Gains& gain)
+template <typename _Derived>
+void ProportionalControllerBase<_Derived>::setGainsImpl(const Gains& gain)
 {
     m_gain = gain;
 }
@@ -129,13 +132,26 @@ void ProportionalControllerBase<_Derived>::setGainsImpl(const ScalarGains& gain)
     std::get<0>(m_gain).setConstant(std::get<0>(gain));
 }
 
-template <typename _Derived> void ProportionalControllerBase<_Derived>::computeControlLawImpl()
+template <typename _Derived>
+void ProportionalControllerBase<_Derived>::computeControlLawImpl()
 {
-    // please read it as
-    // log(X_d * X ^-1)^\vee
-    // Indeed here log() is a sequence of an actual logarithm mapping of the group plus a vee
-    // operator.
-    auto error = (std::get<0>(m_desiredState).compose(std::get<0>(m_state).inverse())).log();
+    Vector error;
+    if constexpr (m_trivialization == Trivialization::Left)
+    {
+        // please read it as
+        // log(X_d * X ^-1)^\vee
+        // Indeed here log() is a sequence of an actual logarithm mapping of the group plus a vee
+        // operator.
+        error = (std::get<0>(m_desiredState).compose(std::get<0>(m_state).inverse())).log();
+    } else
+    {
+        static_assert(m_trivialization == Trivialization::Right, "Expecting right trivialization");
+        // please read it as
+        // log(X ^-1 * X_d)^\vee
+        // Indeed here log() is a sequence of an actual logarithm mapping of the group plus a vee
+        // operator.
+        error = (std::get<0>(m_state).inverse().compose(std::get<0>(m_desiredState))).log();
+    }
     m_controlOutput = m_feedForward + std::get<0>(m_gain).asDiagonal() * error.coeffs();
 }
 

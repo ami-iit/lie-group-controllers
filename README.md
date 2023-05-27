@@ -22,9 +22,10 @@ The library implements two controllers:
 
 The controllers have the following form
 
-|                       Proportional Controller                   |                                    Proportional Derivative Controller                                         |
-|:---------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------:|
-|  $\psi = \psi^d + k_p \text{Log}\left(X^d \circ X^{-1}\right)$  |  $\dot{\psi} = \dot{\psi}^d + k_d \left(\psi^d - \psi \right) +  k_p \text{Log}\left(X^d \circ X^{-1}\right)$ |
+| Trivialization |                   Proportional Controller                    |              Proportional Derivative Controller              |
+| :------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| Left (default) | $\psi = \psi^d + k_p \text{Log}\left(X^d \circ X^{-1}\right)$ | $\dot{\psi} = \dot{\psi}^d + k_d \left(\psi^d - \psi \right) +  k_p \text{Log}\left(X^d \circ X^{-1}\right)$ |
+| Right | $\psi = \psi^d + k_p \text{Log}\left(X^{-1} \circ X^d \right)$ | $\dot{\psi} = \dot{\psi}^d + k_d \left(\psi^d - \psi \right) +  k_p \text{Log}\left(X^{-1}\circ X^d \right)$ |
 
 where `X` and `Xᵈ` are elements of a Lie group. `∘` is the group operator. `ψ` represents an element in the Lie algebra of the Lie group whose coordinates are expressed in `ℝⁿ`.
 
@@ -57,6 +58,9 @@ Eigen::Vector3d feedForward = Eigen::Vector3d::Zero();
 // create the controller.
 ProportionalControllerSO3d controller;
 
+// In case you want to use the right trivialized controller
+// ProportionalControllerTplSO3d<Trivialization::Right> controller;
+
 // set the proportional gain
 const double kp = 10;
 controller.setGains(kp);
@@ -83,6 +87,9 @@ Eigen::Vector3d feedForward = Eigen::Vector3d::Zero();
 
 // create the controller.
 ProportionalDerivativeControllerSO3d controller;
+
+// In case you want to use the right trivialized controller
+// ProportionalDerivativeControllerTplSO3d<Trivialization::Right> controller;
 
 // set the proportional and the derivative gains
 const double kp = 10;

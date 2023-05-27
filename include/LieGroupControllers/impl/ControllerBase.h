@@ -13,6 +13,12 @@
 namespace LieGroupControllers
 {
 
+enum class Trivialization
+{
+    Left,
+    Right
+};
+
 /**
  * ControllerBase describes a base controller
  * @tparam _Derived type of the Derived class. Necessary to implement the Curiously recurring
@@ -28,6 +34,8 @@ public:
     using ScalarGains = typename internal::traits<_Derived>::ScalarGains; /** TODO */
     using Gains = typename internal::traits<_Derived>::Gains; /**< Gains used by the controller */
     using LieGroup = typename internal::traits<_Derived>::LieGroup; /**< Lie Group */
+
+    static constexpr Trivialization trivialization = internal::traits<_Derived>::trivialization;
 
 private:
     _Derived& derived()
@@ -45,16 +53,14 @@ public:
      * @param state of the system.
      * @return true in case of success, false otherwise.
      */
-    template <typename... Ts>
-    bool setState(Ts&&... state);
+    template <typename... Ts> bool setState(Ts&&... state);
 
     /**
      * Set the desired state.
      * @param state of the system.
      * @return true in case of success, false otherwise.
      */
-    template <typename... Ts>
-    bool setDesiredState(Ts&&... state);
+    template <typename... Ts> bool setDesiredState(Ts&&... state);
 
     /**
      * Set the feedforward term of the controller.
@@ -67,8 +73,7 @@ public:
      * Set the controller gains.
      * @param gains contains the controller gain.
      */
-    template <typename... Ts>
-    void setGains(Ts&&... gains);
+    template <typename... Ts> void setGains(Ts&&... gains);
 
     /**
      * Evaluate the control law.

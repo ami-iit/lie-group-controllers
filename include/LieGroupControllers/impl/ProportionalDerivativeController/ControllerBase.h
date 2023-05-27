@@ -22,6 +22,7 @@ public:
     using ScalarGains = typename ControllerBase<_Derived>::ScalarGains;
     using Gains = typename ControllerBase<_Derived>::Gains;
     using LieGroup = typename ControllerBase<_Derived>::LieGroup;
+    static constexpr Trivialization m_trivialization = ControllerBase<_Derived>::trivialization;
 
 private:
     State m_state{LieGroup::Identity(), Vector::Zero()};
@@ -149,8 +150,24 @@ void ProportionalDerivativeControllerBase<_Derived>::computeControlLawImpl()
     const auto& desiredState = std::get<0>(m_desiredState);
     const auto& desiredStateDerivative = std::get<1>(m_desiredState);
 
-    // evaluate state
-    Vector errorState = (desiredState.compose(state.inverse())).log();
+    // evaluate error state
+    Vector errorState;
+    if constexpr (m_trivialization == Trivialization::Left)
+    {
+        // please read it as
+        // log(X_d * X ^-1)^\vee
+        // Indeed here log() is a sequence of an actual logarithm mapping of the group plus a vee
+        // operator.
+        errorState = desiredState.compose(state.inverse()).log();
+    } else
+    {
+        static_assert(m_trivialization == Trivialization::Right, "Expecting right trivialization");
+        // please read it as
+        // log(X ^-1 * X_d)^\vee
+        // Indeed here log() is a sequence of an actual logarithm mapping of the group plus a vee
+        // operator.
+        errorState = (state.inverse().compose(desiredState)).log();
+    }
     Vector errorStateDerivative = desiredStateDerivative - stateDerivative;
 
     // compute the control law
