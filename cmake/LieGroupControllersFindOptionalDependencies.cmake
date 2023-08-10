@@ -1,5 +1,5 @@
-# This software may be modified and distributed under the terms of the
-# GNU Lesser General Public License v2.1 or any later version.
+# SPDX-FileCopyrightText: Fondazione Istituto Italiano di Tecnologia (IIT)
+# SPDX-License-Identifier: BSD-3-Clause
 #
 # This module checks if all the dependencies are installed and if the
 # dependencies to build some parts are satisfied.
