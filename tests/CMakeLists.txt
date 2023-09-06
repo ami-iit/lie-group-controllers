@@ -1,5 +1,5 @@
-# Authors: Giulio Romualdi
-# CopyPolicy: Released under the terms of the LGPLv2.1 or later
+# SPDX-FileCopyrightText: Fondazione Istituto Italiano di Tecnologia (IIT)
+# SPDX-License-Identifier: BSD-3-Clause
 
 add_liegroupcontrollers_test(
   NAME ProportionalController
