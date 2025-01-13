@@ -112,7 +112,7 @@ const auto& controlOutput = controller.getControl();
 - [Eigen3](http://eigen.tuxfamily.org/index.php?title=Main_Page)
 - [cmake](https://cmake.org/)
 
-## Build the library
+## Source installation 
 
 ```console
 git clone https://github.com/GiulioRomualdi/lie-group-controllers.git
@@ -123,6 +123,13 @@ cmake --build .
 [sudo] cmake --build . --target install
 ```
 If you want to enable tests set the `BUILD_TESTING` option to `ON`.
+
+## Conda installation
+In case you do not need the src file of the library, it is possible to install the library also via conda, using the following command: 
+
+```console
+conda install -c conda-forge liblie-group-controllers
+```
 
 ## Use lie-group-controllers in your project
 
