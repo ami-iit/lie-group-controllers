@@ -1,148 +1,61 @@
-name: C++ CI Workflow
+name: C++ CI Workflow with conda-forge dependencies
 
 on:
   push:
   pull_request:
+  workflow_dispatch:
   schedule:
   # * is a special character in YAML so you have to quote this string
   # Execute a "nightly" build at 2 AM UTC
   - cron:  '0 2 * * *'
 
-env:
-  manif_TAG: 78cc83d8292736b26a3a4f6d302057a6b80056a4
-
-# Test with different operating systems
 jobs:
   build:
-    name: '[${{ matrix.os }}@${{ matrix.build_type }}]'
+    name: '[${{ matrix.os }}@${{ matrix.build_type }}@conda]'
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        build_type: [Debug, Release]
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+        build_type: [Release]
+        os: [ubuntu-latest, windows-2019, macOS-latest]
       fail-fast: false
 
-    # operating system dependences
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
 
-    # Print environment variables to simplify development and debugging
-    - name: Environment Variables
-      shell: bash
-      run: env
-
-    # ============
-    # DEPENDENCIES
-    # ============
-
-    # Remove apt repos that are known to break from time to time
-    # See https://github.com/actions/virtual-environments/issues/323
-    - name: Remove broken apt repos [Ubuntu]
-      if: matrix.os == 'ubuntu-latest'
-      run: |
-        for apt_file in `grep -lr microsoft /etc/apt/sources.list.d/`; do sudo rm $apt_file; done
-
-    - name: Dependencies [Windows]
-      if: matrix.os == 'windows-latest'
-      run: |
-        vcpkg install --triplet x64-windows eigen3
-
-    - name: Dependencies [macOS]
-      if: matrix.os == 'macOS-latest'
-      run: |
-        brew install eigen
-
-    - name: Dependencies [Ubuntu]
-      if: matrix.os == 'ubuntu-latest'
-      run: |
-        sudo apt-get update
-        sudo apt-get install git build-essential cmake libeigen3-dev valgrind
-
-    - name: Cache Source-based Dependencies
-      id: cache-source-deps
-      uses: actions/cache@v1
+    - uses: conda-incubator/setup-miniconda@v3
       with:
-        path: ${{ github.workspace }}/install/deps
-        key: source-deps-${{ runner.os }}-manif-${{ env.manif_TAG }}
+        miniforge-version: latest
 
-    - name: Source-based Dependencies [Windows]
-      if: steps.cache-source-deps.outputs.cache-hit != 'true' && matrix.os == 'windows-latest'
-      shell: bash
+    - name: Dependencies
+      shell: bash -l {0}
       run: |
-        # manif
-        cd ${GITHUB_WORKSPACE}
-        git clone https://github.com/artivis/manif
-        cd manif
-        git checkout ${manif_TAG}
+        # Compilation related dependencies
+        conda install cmake compilers make ninja pkg-config catch2 eigen manif
+
+    - name: Configure [Linux&macOS]
+      if: contains(matrix.os, 'macos') || contains(matrix.os, 'ubuntu')
+      shell: bash -l {0}
+      run: |
         mkdir -p build
         cd build
-        cmake -A x64 -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake \
-                     -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/install/deps ..
-
-        cmake --build . --config ${{ matrix.build_type }} --target INSTALL
-
-    - name: Source-based Dependencies [Ubuntu/macOS]
-      if: steps.cache-source-deps.outputs.cache-hit != 'true' && (matrix.os == 'ubuntu-latest' || matrix.os == 'macOS-latest')
-      shell: bash
-      run: |
-        # manif
-        cd ${GITHUB_WORKSPACE}
-        git clone https://github.com/artivis/manif
-        cd manif
-        git checkout ${manif_TAG}
-        mkdir -p build
-        cd build
-        cmake -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/install/deps ..
-        cmake --build . --config ${{ matrix.build_type }} --target install
-
-    # ===================
-    # CMAKE-BASED PROJECT
-    # ===================
+        cmake -GNinja -DBUILD_TESTING:BOOL=ON -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/install ..
 
     - name: Configure [Windows]
-      if: matrix.os == 'windows-latest'
-      shell: bash
+      if: contains(matrix.os, 'windows')
+      shell: bash -l {0}
       run: |
         mkdir -p build
         cd build
-        cmake -A x64 -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake \
-              -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/install/deps \
-              -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/install \
-              -DBUILD_TESTING:BOOL=ON ..
-
-    - name: Configure [Ubuntu]
-      if: matrix.os == 'ubuntu-latest'
-      shell: bash
-      run: |
-        mkdir -p build
-        cd build
-        cmake -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/install/deps \
-              -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/install \
-              -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-              -DBUILD_TESTING:BOOL=ON \
-              -DLIEGROUPCONTROLLERS_RUN_Valgrind_tests:BOOL=ON ..
-
-    - name: Configure [macOS]
-      if: matrix.os == 'macOS-latest'
-      shell: bash
-      run: |
-        mkdir -p build
-        cd build
-        cmake -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/install/deps \
-              -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/install \
-              -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-              -DBUILD_TESTING:BOOL=ON ..
+        cmake -G"Visual Studio 16 2019" -DBUILD_TESTING:BOOL=ON -DDISABLE_PERMISSIVE:BOOL=ON -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/install ..
 
     - name: Build
-      shell: bash
+      shell: bash -l {0}
       run: |
         cd build
-        export PATH=$PATH:/d/a/lie-group-controllers/lie-group-controllers/install/bin:/d/a/lie-group-controllers/lie-group-controllers/install/deps/bin
-        cmake --build . --config ${{ matrix.build_type }}
+        cmake --build . --config ${{ matrix.build_type }} --target install
 
     - name: Test
-      shell: bash
+      shell: bash -l {0}
       run: |
         cd build
-        export PATH=$PATH:/d/a/lie-group-controllers/lie-group-controllers/install/bin:/d/a/lie-group-controllers/lie-group-controllers/install/deps/bin
-        ctest --output-on-failure -C ${{ matrix.build_type }} .
+        ctest --output-on-failure -C ${{ matrix.build_type }}
