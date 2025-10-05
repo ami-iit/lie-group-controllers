@@ -116,7 +116,7 @@ install(FILES ${${LIBRARY_TARGET_NAME}_PRIVATE_PROPORTIONAL_DERIVATIVE_HDR}
   DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_TARGET_NAME}/impl/ProportionalDerivativeController")
 
 include(InstallBasicPackageFiles)
-set(LIEGROUPCONTROLLERS_PUBLIC_DEPENDENCIES manif "Eigen3 3.2.92")
+set(LIEGROUPCONTROLLERS_PUBLIC_DEPENDENCIES manif Eigen3)
 
 install_basic_package_files(${PROJECT_NAME}
   NAMESPACE LieGroupControllers::

@@ -5,7 +5,7 @@ include(LieGroupControllersFindOptionalDependencies)
 
 #---------------------------------------------
 ## Required Dependencies
-find_package(Eigen3 3.2.92 REQUIRED)
+find_package(Eigen3 REQUIRED)
 find_package(manif REQUIRED)
 
 #---------------------------------------------
